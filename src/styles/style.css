@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* Text styles */
+
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url(../../public/fonts/Inter-Regular.woff2);
+}
+@font-face {
+    font-family: 'Inter-Medium';
+    src: url(../../public/fonts/Inter-Medium.woff2);
+}
+@font-face {
+    font-family: 'Inter-SemiBold';
+    src: url(../../public/fonts/Inter-SemiBold.woff2);
+}
+
+/* Desktop */
+h1 {
+    font-family: 'Inter-Medium';
+    font-size: 80px;
+}
+h2, h3, h4, h5 {
+    font-family: 'Inter-Regular';
+}
+.h_bold {
+    font-family: 'Inter-Semibold';
+}
+h2 {
+    font-size: 50px;
+}
+h3 {
+    font-size: 40px;
+}
+h4 {
+    font-size: 26px;
+}
+h5 {
+    font-size: 20px;
+}
+p, .p_small, a {
+    font-family: Helvetica;
+}
+p {
+    font-size: 18px;
+}
+.p_small {
+    font-size: 16px;
+}
+a {
+    font-size: 18px;
+}
+
+/* Mobil */
+/* Nede i media querie. */
+
+/* Color styles */
+
+:root {
+    /* Sort */
+    --sort100Color: #2D2D2D;
+    --sort80Color: #2D2D2DCC;
+    --sort60Color: #2D2D2D99;
+    /* Rød */
+    --rød100Color: #AC2A22;
+    --rød80Color: #AC2A22CC;
+    --rød60Color: #AC2A2299;
+    /* Beige */
+    --beige100Color: #EAE1D6;
+    --beige80Color: #EAE1D6CC;
+    --beige60Color: #EAE1D699;
+    /* Hvid */
+    --hvidColor: #FFFFFF;
+
+}
+
+/* Effects */
+
+    /* Drop shadow */
+    /* box-shadow: 5px 5px 4px #AC2A224D; */
+
+    /* Inner shadow */
+    /* box-shadow: 5px 5px 4px #AC2A224D inset; */
+
+/* Generel styling */
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+}
+body {
+    background-color: var(--hvidColor);
+    color: var(--sort100Color);
+    margin: 56px;
+}
+
+/* Mobil version */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    h3 {
+        font-size: 220px;
+    }
+    h4 {
+        font-size: 20px;
+    }
+    h5 {
+        font-size: 16px;
+    }
+    p {
+        font-size: 14px;
+    }
+    .p_small {
+        font-size: 12px;
+    }
+    a {
+        font-size: 22px;
+    }
+    body {
+        margin: 28px;
+    }
+}
