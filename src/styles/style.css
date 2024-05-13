@@ -24,9 +24,11 @@
 h1 {
     font-family: 'Inter-Medium';
     font-size: 80px;
+    text-transform: uppercase;
 }
 h2, h3, h4, h5 {
     font-family: 'Inter-Regular';
+    text-transform: uppercase;
 }
 .h_bold {
     font-family: 'Inter-Semibold';
@@ -54,6 +56,9 @@ p {
 }
 a {
     font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--sort100Color);
 }
 
 /* Mobil */
@@ -92,11 +97,10 @@ a {
 html {
     scroll-behavior: smooth;
 }
-
 img {
     max-width: 100%;
 }
-body {
+main {
     background-color: var(--hvidColor);
     color: var(--sort100Color);
     margin: 56px;
@@ -128,7 +132,7 @@ body {
     a {
         font-size: 22px;
     }
-    body {
+    main {
         margin: 28px;
     }
 }

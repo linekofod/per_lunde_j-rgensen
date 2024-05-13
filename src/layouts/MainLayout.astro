@@ -1,7 +1,6 @@
 ---
 import "../styles/style.css";
 import Header from "../components/Header.astro";
-import Burgermenu from "../components/Burgermenu.astro";
 import Footer from "../components/Footer.astro";
 const { title } = Astro.props;
 ---
@@ -16,11 +15,14 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Header />
-    <Burgermenu />
+    <header>
+      <Header />
+    </header>
     <main>
       <slot />
     </main>
-    <Footer />
+    <footer>
+      <Footer />
+    </footer>
   </body>
 </html>
