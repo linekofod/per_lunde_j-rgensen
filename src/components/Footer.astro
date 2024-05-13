@@ -1,0 +1,87 @@
+---
+import "../styles/style.css";
+---
+
+<div class="footer">
+  <div class="logo">
+    <a href="/"> <img src="/logo/logo_footer.svg" alt="Logo" /></a>
+  </div>
+  <nav>
+    <h5 class="h_bold">Overview</h5>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/artworks">Artworks</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/former_exhibitions">Former Exhibitions</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="some">
+    <h5 class="h_bold">Social Media</h5>
+    <div class="some_icons">
+      <a href="/">
+        <img src="/imgs/some/instagram.svg" alt="Instagram icon" /></a
+      >
+      <a href="/"> <img src="/imgs/some/mail.svg" alt="Mail icon" /></a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid var(--sort100Color);
+    padding: 68px 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  li {
+    list-style: none;
+  }
+  li a:hover {
+    color: var(--rød100Color);
+  }
+  .some {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .some_icons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  /* Mobil version */
+  @media screen and (max-width: 600px) {
+    .footer {
+      padding: 40px;
+    }
+    .logo {
+      display: block;
+    }
+    a {
+      font-size: 18px;
+    }
+  }
+</style>
