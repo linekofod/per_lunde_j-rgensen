@@ -9,18 +9,28 @@ const data = await fetch(
     method: "GET",
     headers: {
       apikey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFmY2JteHdmbmpkb2J5d2t3ZmVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0ODkyNDAsImV4cCI6MjAyNjA2NTI0MH0.4phUCO3QegbetzxWRquRHEWOYbF8TctgcydbEjOxnxI",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwb3NiZWxidWVlbXV6b25xaXV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ3MzY2NzEsImV4cCI6MjAzMDMxMjY3MX0.7RC3yfMry34vETtGOmQWAujgxwf9O7ONYsWoLMtoagM",
     },
   }
 ).then((res) => res.json());
+console.log(data);
 ---
 
 <MainLayout title="Artworks">
-  <CardArtworks
-    destination="#"
-    img="/imgs/artwork1.webp"
-    title="Ebay Office Chairs"
-    measurements="39 2/5 × 47 1/5 in | 100 × 120 cm"
-    location="Valby"
-  />
+  <section class="artworks">
+    {
+      data.map((artwork) => {
+        return <CardArtworks data={artwork} />;
+      })
+    }
+  </section>
 </MainLayout>
+
+<style>
+  .artworks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
+    justify-content: center;
+    gap: 30px;
+  }
+</style>
