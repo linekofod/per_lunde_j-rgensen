@@ -1,0 +1,41 @@
+---
+import "../styles/style.css";
+const { destination, img, measurements, title, location } = Astro.props;
+---
+
+<article>
+  <div class="grid_1-1-1">
+    <a href="">
+      <img src={img} alt="" />
+      <p>{measurements}</p>
+      <h4 class="h_bold">{title}</h4>
+      <h5>{location}</h5>
+    </a>
+    <a href="">
+      <img src={img} alt="" />
+      <p>{measurements}</p>
+      <h4 class="h_bold">{title}</h4>
+      <h5>{location}</h5>
+    </a>
+    <a href="">
+      <img src={img} alt="" />
+      <p>{measurements}</p>
+      <h4 class="h_bold">{title}</h4>
+      <h5>{location}</h5>
+    </a>
+  </div>
+</article>
+
+<style>
+  .grid_1-1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+  }
+  p {
+    color: var(--sort60Color);
+  }
+  a {
+    text-transform: none;
+  }
+</style>
