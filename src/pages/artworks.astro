@@ -2,6 +2,17 @@
 import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
 import CardArtworks from "../components/CardArtworks.astro";
+
+const data = await fetch(
+  "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFmY2JteHdmbmpkb2J5d2t3ZmVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0ODkyNDAsImV4cCI6MjAyNjA2NTI0MH0.4phUCO3QegbetzxWRquRHEWOYbF8TctgcydbEjOxnxI",
+    },
+  }
+).then((res) => res.json());
 ---
 
 <MainLayout title="Artworks">
