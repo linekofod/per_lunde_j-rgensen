@@ -5,19 +5,19 @@ const { destination, img, measurements, title, location } = Astro.props;
 
 <article>
   <div class="grid_1-1-1">
-    <a href="">
+    <a class="card" href={destination}>
       <img src={img} alt="" />
       <p>{measurements}</p>
       <h4 class="h_bold">{title}</h4>
       <h5>{location}</h5>
     </a>
-    <a href="">
+    <a class="card" href={destination}>
       <img src={img} alt="" />
       <p>{measurements}</p>
       <h4 class="h_bold">{title}</h4>
       <h5>{location}</h5>
     </a>
-    <a href="">
+    <a class="card" href={destination}>
       <img src={img} alt="" />
       <p>{measurements}</p>
       <h4 class="h_bold">{title}</h4>
@@ -29,7 +29,8 @@ const { destination, img, measurements, title, location } = Astro.props;
 <style>
   .grid_1-1-1 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
+    justify-content: center;
     gap: 50px;
   }
   p {
