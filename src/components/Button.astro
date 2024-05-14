@@ -1,21 +1,31 @@
 ---
 import "../styles/style.css";
-const { destination, name } = Astro.props;
+// Definerer props "destination".
+const { destination } = Astro.props;
 ---
 
-<button><a href={destination}>{name}</a></button>
+<!-- Indsætter slot og props, så vi kan ændre i indholdet af knappen inde i html'en -->
+<a class="button" href={destination}><slot /></a>
+
+<!--Skriv knappen ind i html: <Button destination="skriv knappens destination">Skriv titlen på knappen</Button> -->
 
 <style>
-  button {
-    padding: 15px 45px;
+  .button {
+    padding: 18px 50px;
     border: 1px solid var(--sort100Color);
     background-color: var(--hvidColor);
     cursor: pointer;
   }
-  button:hover {
+  .button:hover {
     box-shadow: 5px 5px 4px #ac2a224d;
-  }
-  button:hover ~ button a {
     color: var(--rød100Color);
+  }
+
+  /* Mobil version */
+  @media screen and (max-width: 600px) {
+    .button {
+      padding: 15px 40px;
+      font-size: 14px;
+    }
   }
 </style>
