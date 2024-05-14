@@ -2,6 +2,7 @@
 import "../styles/style.css";
 ---
 
+<!-- Html'en af headeren -->
 <div class="header">
   <div class="logo">
     <a href="/">
@@ -80,6 +81,9 @@ import "../styles/style.css";
     .menu {
       display: none;
     }
+    .menu li:first-child {
+      display: block;
+    }
     .logo {
       padding: 0;
     }
@@ -113,16 +117,20 @@ import "../styles/style.css";
 </style>
 
 <script>
+  // Definerer nogle variabler
   const burger = document.querySelector(".burger");
   const nav = document.querySelector("nav");
   const menu = document.querySelector(".menu");
   const links = document.querySelectorAll(".menu li a");
 
+  // Kalder funtion på click af burgermenuen.
+  // Funktionen tilføjer klassen .active, når der klikkes på burgermenuen.
   burger.addEventListener("click", () => {
     burger.classList.toggle("active");
     nav.classList.toggle("active");
   });
 
+  // Når der klikkes på linksene inde i burgermenuen, lukker burgermenuen igen.
   links.forEach((link) => {
     link.addEventListener("click", () => {
       burger.classList.remove("active");
