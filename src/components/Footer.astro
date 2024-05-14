@@ -33,25 +33,24 @@ import "../styles/style.css";
     bottom: 0;
     width: 100%;
     border-top: 1px solid var(--sort100Color);
-    padding: 68px 120px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+    padding: 68px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .logo {
-    display: flex;
-    align-items: center;
+    margin: auto;
   }
   nav {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: center;
   }
   nav ul {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: center;
   }
   li {
     list-style: none;
@@ -63,25 +62,41 @@ import "../styles/style.css";
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: center;
   }
   .some_icons {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    justify-content: center;
     align-items: baseline;
   }
 
   /* Mobil version */
   @media screen and (max-width: 600px) {
     .footer {
-      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 0;
+      padding: 50px 0;
+    }
+    nav {
+      gap: 10px;
+    }
+    .some {
+      grid-column: 2;
+    }
+    .some_icons {
+      width: 50%;
     }
     .logo {
-      display: block;
+      padding: 30px;
+      grid-row: 1 / span 2;
     }
     a {
       font-size: 18px;
+    }
+    ul li a {
+      font-size: 12px;
     }
   }
 </style>
