@@ -1,0 +1,21 @@
+---
+import "../styles/style.css";
+const { destination, name } = Astro.props;
+---
+
+<button><a href={destination}>{name}</a></button>
+
+<style>
+  button {
+    padding: 15px 45px;
+    border: 1px solid var(--sort100Color);
+    background-color: var(--hvidColor);
+    cursor: pointer;
+  }
+  button:hover {
+    box-shadow: 5px 5px 4px #ac2a224d;
+  }
+  button:hover ~ button a {
+    color: var(--rød100Color);
+  }
+</style>

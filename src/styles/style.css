@@ -50,9 +50,11 @@ p, .p_small, a {
 }
 p {
     font-size: 18px;
+    max-width: 60ch;
 }
 .p_small {
     font-size: 16px;
+    max-width: 60ch;
 }
 a {
     font-size: 18px;
