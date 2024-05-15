@@ -1,0 +1,47 @@
+---
+import "../../styles/style.css";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Button from "../../components/Button.astro";
+export async function getStaticPaths() {
+  const data = await fetch(
+    "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc",
+    {
+      method: "GET",
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwb3NiZWxidWVlbXV6b25xaXV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ3MzY2NzEsImV4cCI6MjAzMDMxMjY3MX0.7RC3yfMry34vETtGOmQWAujgxwf9O7ONYsWoLMtoagM",
+      },
+    }
+  ).then((response) => response.json());
+
+  return data.map((artwork) => {
+    return {
+      params: { slug: artwork.slug },
+      props: { data: artwork },
+    };
+  });
+}
+
+const { data } = Astro.props;
+console.log(data);
+---
+
+<MainLayout>
+  <section class="grid_1-1">
+    <img src=`/imgs/artworks/${data.img}` alt="" />
+    <div class="artwork_info">
+      <h2>{data.title}</h2>
+      <h3>{data.location}</h3>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  h3 {
+    text-transform: uppercase;
+  }
+</style>

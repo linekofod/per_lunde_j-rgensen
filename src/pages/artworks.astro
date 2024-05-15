@@ -4,7 +4,8 @@ import MainLayout from "../layouts/MainLayout.astro";
 import CardArtworks from "../components/CardArtworks.astro";
 
 const data = await fetch(
-  "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc",
+  // Fetcher kun det data vi skal bruge med select (title, size, location, img og slug).
+  "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc&select=title,size,location,img,slug",
   {
     method: "GET",
     headers: {
@@ -29,7 +30,7 @@ console.log(data);
 <style>
   .artworks {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
+    grid-template-columns: repeat(auto-fill, minmax(420px, 420px));
     justify-content: center;
     gap: 30px;
   }

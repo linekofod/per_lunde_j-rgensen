@@ -1,12 +1,11 @@
 ---
 import "../styles/style.css";
-// const { destination, img, measurements, title, location } = Astro.props;
 const { data } = Astro.props;
 console.log(data);
 ---
 
 <article>
-  <a class="card" href="#">
+  <a class="card" href={`artworks/${data.slug}`}>
     <figure>
       <img src=`/imgs/artworks/${data.img}` alt="" />
     </figure>
@@ -30,5 +29,8 @@ console.log(data);
     object-fit: cover;
     height: 398px;
     width: 410px;
+  }
+  figure:hover {
+    opacity: 0.8;
   }
 </style>
