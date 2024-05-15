@@ -3,4 +3,97 @@ import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Contact" />
+<MainLayout title="Contact">
+  <!-- overskrift -->
+  <div class="grid_contact">
+    <!-- Venstre grid -->
+    <div>
+      <h1>CONTACT</h1>
+
+      <!-- adresse -->
+      <h3>Address</h3>
+      <h5>Bonamatic</h5>
+      <p>Degnestavnen 17, st.tv.</p>
+      <p>2400 København NV</p>
+
+      <!-- åbningstider -->
+      <div class="grid_1-1">
+        <div class="fælles_åbningstider">
+          <div class="åbningstider"><h5>Monday:</h5><p>Closed</p></div>
+          <div class="åbningstider"><h5>Tuesday:</h5><p>Closed</p></div>
+          <div class="åbningstider"><h5>Wednesday:</h5><p>Closed</p></div>
+          <div class="åbningstider"><h5>Thursday:</h5><p>15:30-17:00</p></div>
+          <div class="åbningstider"><h5>Friday:</h5><p>15:30-17:00</p></div>
+          <div class="åbningstider"><h5>Saturday:</h5><p>12:00-15:00</p></div>
+          <div class="åbningstider"><h5>Sunday:</h5><p>Closed</p></div>
+        </div>
+        <!-- illustration -->
+        <img src="/imgs/illustration1.svg" alt="" />
+      </div>
+
+      <!-- kontakt -->
+      <h3>Per Lunde Jørgensen</h3>
+      <h5>Phone</h5>
+      <p>+45 36 16 77 10</p>
+      <h5>Email</h5>
+      <p>plj@nonsite.dk</p>
+    </div>
+
+    <!-- Højre grid (form-container) -->
+
+    <div class="form-container">
+      <h3>Get in touch</h3>
+      <form>
+        <label for="name">Name</label><br />
+        <input type="text" id="name" name="name" /><br />
+
+        <label for="info">Contact info</label><br />
+        <input type="text" id="info" name="info" /><br />
+
+        <label for="enquiry">Enquiry</label><br />
+        <input type="text" id="enquiry" name="enquiry" /><br />
+      </form>
+    </div>
+  </div>
+
+  <style>
+    .grid_1-1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .grid_contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 20px;
+    }
+
+    .form-container {
+      margin-top: 67px;
+      grid-column: 2;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #000000;
+    }
+
+    form label {
+      font-family: Inter-Regular;
+    }
+
+    .åbningstider {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .fælles_åbningstider {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+    }
+  </style>
+</MainLayout>
