@@ -1,6 +1,37 @@
 ---
 import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
+import Card from "../components/CardFormerExhibitions.astro";
+import Button from "../components/Button.astro";
 ---
 
-<MainLayout title="Former Exhitions" />
+<MainLayout title="Former Exhitions">
+  <h1>FORMER EXHIBITIONS</h1>
+  <Card
+    place="Viewing Room 2023"
+    location="New York"
+    information="The gallery is pleased to present a solo exhibition of works by Per Lunde Jørgensen in the viewing room from March 7 - April 8.  This is the gallery’s first presentation of the Copenhagen-based artist’s work. The exhibition will include a floor to ceiling modular installation comprised of individual canvases featuring forms of a single color or related set of colors.  The textural surfaces of color, sewn into raw canvas, are in fact upholstery fabrics taken from office chairs that the artist researches in classified ads and buys in and around Copenhagen.  The title of each final work refers to the location where the chairs were initially collected."
+    imgPath="../public/imgs/formerexhibitions/viewingroom2023_newyork.webp"
+   buttonlink="http://www.kristenlorello.com/per-lunde-jurgenson"
+    />
+
+<!-- omvendt card -->
+
+<Card
+place="Nada 2022"
+location="Miami"
+information="Preowned curtains collected in suburban areas around Copenhagen, combined with ink paintings of phantom-like gestalt formations."
+imgPath="../public/imgs/formerexhibitions/Nada2022_miami.webp"
+buttonlink=""
+/>
+<!-- omvendt card -->
+
+<Card
+place="REASSEMBLING THE SOCIAL 2018"
+location="Denmark"
+information="Per Lunde Jørgensen's new work is based on office chairs purchased on the classifieds website within a limited search radius of 20 km, which, in addition to delineating an area, also points to a specific social demographic. The upholstery of the office chairs has been removed and sewn onto canvas to create pictorial objects that exist in an unstable state between the recognizable and the universally abstract."
+imgPath="../public/imgs/formerexhibitions/thesocial2018_denmark.webp"
+buttonlink=""
+/>
+
+</MainLayout>
