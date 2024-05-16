@@ -32,9 +32,20 @@ console.log(data);
     <figure>
       <img src=`/imgs/artworks/${data.img}` alt="" />
     </figure>
+    <img src="/imgs/artworks/image_placeholder.png" alt="" />
     <div class="artwork_info">
-      <h2>{data.title}</h2>
-      <h3>{data.location}</h3>
+      <div class="title_location">
+        <h2>{data.title}</h2>
+        <h3>{data.location}</h3>
+      </div>
+      <p class=".p_small">{data.description}</p>
+      <div class="material_size">
+        <p class=".p_small">{data.material}</p>
+        <p class=".p_small grey">{data.size}</p>
+      </div>
+      <div class="button">
+        <Button description="/contact">Get in touch</Button>
+      </div>
     </div>
   </section>
 </MainLayout>
@@ -43,12 +54,32 @@ console.log(data);
   .grid_1-1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+  h2 {
+    line-height: 1.2;
   }
   h3 {
     text-transform: uppercase;
   }
   figure {
-    margin: -100px 0 0 -100px;
+    margin: -160px 0 0 -100px;
     z-index: 0;
+  }
+  .grey {
+    color: var(--sort60Color);
+  }
+  .artwork_info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .material_size {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .button {
+    margin-top: 20px;
   }
 </style>
