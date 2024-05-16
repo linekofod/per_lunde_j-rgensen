@@ -28,7 +28,6 @@ h1 {
 }
 h2, h3, h4, h5 {
     font-family: 'Inter-Regular';
-    text-transform: uppercase;
 }
 .h_bold {
     font-family: 'Inter-Semibold';
@@ -117,7 +116,7 @@ main {
         font-size: 30px;
     }
     h3 {
-        font-size: 220px;
+        font-size: 22px;
     }
     h4 {
         font-size: 20px;
