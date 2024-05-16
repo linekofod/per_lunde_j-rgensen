@@ -1,6 +1,7 @@
 ---
 import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
 ---
 
 <MainLayout title="Contact">
@@ -15,6 +16,8 @@ import MainLayout from "../layouts/MainLayout.astro";
       <h5>Bonamatic</h5>
       <p>Degnestavnen 17, st.tv.</p>
       <p>2400 København NV</p><br />
+
+      <h3>Opening hours</h3>
 
       <!-- åbningstider -->
       <div class="grid_1-1">
@@ -47,12 +50,18 @@ import MainLayout from "../layouts/MainLayout.astro";
         <label for="name">Name</label><br />
         <input type="text" id="name" name="name" /><br />
 
-        <label for="info">Contact info</label><br />
+        <label for="info">Email</label><br />
         <input type="text" id="info" name="info" /><br />
 
-        <label for="enquiry">Enquiry</label><br />
-        <input type="text" id="enquiry" name="enquiry" /><br />
+        <label for="enquiry">Inquiry</label><br />
+        <input
+          type="text"
+          id="enquiry"
+          name="enquiry"
+          placeholder="Enter your message"
+        /><br />
       </form>
+      <Button>SEND</Button>
     </div>
   </div>
 
@@ -61,6 +70,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
+      margin-top: 50px;
     }
     .grid_contact {
       display: grid;
@@ -69,14 +79,14 @@ import MainLayout from "../layouts/MainLayout.astro";
     }
 
     .form-container {
-      margin-top: 67px;
+      margin-top: 120px;
       grid-column: 2;
     }
 
     input {
       width: 80%;
       padding: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       border: 1px solid #000000;
     }
 
@@ -95,6 +105,11 @@ import MainLayout from "../layouts/MainLayout.astro";
       display: flex;
       flex-direction: column;
       gap: 0px;
+    }
+
+    #enquiry {
+      width: 80%;
+      padding-bottom: 80px;
     }
   </style>
 </MainLayout>
