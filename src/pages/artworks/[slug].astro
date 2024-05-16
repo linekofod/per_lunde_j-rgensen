@@ -30,9 +30,12 @@ console.log(data);
 <MainLayout>
   <section class="grid_1-1">
     <figure>
-      <img src=`/imgs/artworks/${data.img}` alt="" />
+      <img class="large_img" src=`/imgs/artworks/${data.img}` alt="" />
+      <div class="zoom_imgs">
+        <img src="/imgs/artworks/zoom1.png" alt="" />
+        <img src="/imgs/artworks/zoom2.png" alt="" />
+      </div>
     </figure>
-    <img src="/imgs/artworks/image_placeholder.png" alt="" />
     <div class="artwork_info">
       <div class="title_location">
         <h2>{data.title}</h2>
@@ -65,6 +68,18 @@ console.log(data);
   figure {
     margin: -160px 0 0 -100px;
     z-index: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .large_img {
+    height: 80vh;
+  }
+  .zoom_imgs {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 5px;
   }
   .grey {
     color: var(--sort60Color);
