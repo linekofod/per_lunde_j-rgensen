@@ -1,11 +1,13 @@
 ---
 import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
 ---
 
 <MainLayout title="Contact">
   <!-- overskrift -->
   <div class="grid_contact">
+    <div class="vl"></div>
     <!-- Venstre grid -->
     <div>
       <h1>CONTACT</h1>
@@ -15,6 +17,8 @@ import MainLayout from "../layouts/MainLayout.astro";
       <h5>Bonamatic</h5>
       <p>Degnestavnen 17, st.tv.</p>
       <p>2400 København NV</p>
+
+      <h3>Opening hours</h3>
 
       <!-- åbningstider -->
       <div class="grid_1-1">
@@ -47,35 +51,43 @@ import MainLayout from "../layouts/MainLayout.astro";
         <label for="name">Name</label><br />
         <input type="text" id="name" name="name" /><br />
 
-        <label for="info">Contact info</label><br />
+        <label for="info">Email</label><br />
         <input type="text" id="info" name="info" /><br />
 
-        <label for="enquiry">Enquiry</label><br />
-        <input type="text" id="enquiry" name="enquiry" /><br />
+        <label for="enquiry">Inquiry</label><br />
+        <input
+          type="text"
+          id="enquiry"
+          name="enquiry"
+          placeholder="Enter your message"
+        /><br />
       </form>
+      <Button>SEND</Button>
     </div>
   </div>
 
   <style>
     .grid_1-1 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 230px 200px;
+      margin-top: 20px;
     }
     .grid_contact {
       display: grid;
       grid-template-columns: 1fr 1fr;
       margin: 20px;
+      position: relative;
     }
 
     .form-container {
-      margin-top: 67px;
+      margin-top: 120px;
       grid-column: 2;
     }
 
     input {
       width: 80%;
       padding: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
       border: 1px solid #000000;
     }
 
@@ -94,6 +106,24 @@ import MainLayout from "../layouts/MainLayout.astro";
       display: flex;
       flex-direction: column;
       gap: 0px;
+    }
+
+    #enquiry {
+      width: 80%;
+      padding-bottom: 120px;
+    }
+
+    h3 {
+      margin-top: 30px;
+    }
+
+    .vl {
+      border-left: 1px solid var(--sort100Color);
+      height: 180vh;
+      position: absolute;
+      left: 37%;
+      top: -160px;
+      z-index: 0;
     }
   </style>
 </MainLayout>
