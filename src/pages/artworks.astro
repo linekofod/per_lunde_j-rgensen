@@ -2,6 +2,7 @@
 import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
 import CardArtworks from "../components/CardArtworks.astro";
+import FilterArtworks from "../components/FilterArtworks.astro";
 
 const data = await fetch(
   // Fetcher kun det data vi skal bruge med select (title, size, location, img og slug).
@@ -19,6 +20,7 @@ console.log(data);
 
 <MainLayout title="Artworks">
   <h1>Artworks</h1>
+  <FilterArtworks />
   <section class="artworks">
     {
       data.map((artwork) => {

@@ -29,7 +29,9 @@ console.log(data);
 <!-- Style og skriv forklaringer (brug dem fra dine noter) --><!-- Spørg pigerne om "Within 20 km Of Copenhagen" -->
 <MainLayout>
   <section class="grid_1-1">
-    <img src=`/imgs/artworks/${data.img}` alt="" />
+    <figure>
+      <img src=`/imgs/artworks/${data.img}` alt="" />
+    </figure>
     <div class="artwork_info">
       <h2>{data.title}</h2>
       <h3>{data.location}</h3>
@@ -44,5 +46,9 @@ console.log(data);
   }
   h3 {
     text-transform: uppercase;
+  }
+  figure {
+    margin: -100px 0 0 -100px;
+    z-index: 0;
   }
 </style>
