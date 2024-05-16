@@ -3,4 +3,80 @@ import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="About" />
+<MainLayout title="About" >
+<h1>About</h1>
+<div class="about_Per">
+    <div class="textbox_about">
+    <h2>Per Lunde Jørgensen</h2>
+    <div class="text_flex">
+    <p>Per Lunde Jørgensen was born in Aarhus, Denmark (1964) and he lives and work in Copenhagen.  He holds an MFA from the Royal Danish Academy of Fine Arts, and has had several solo shows at Galleri Søren Houmann and at The Danish Cultural Ministery´s Kunsthal O-Overgaden.  
+        He has participated in a wide range of exhibitions including Stadtgalerie Kiel, Germany, SMK The Danish National Gallery, and KØS, Denmark, and has exhibited at several art museums in Scandinavia. His works are collected by The Danish Art Counsel, The Berkowitz Art Foundation, and numerous other private collections.  In 2024 his works will be part of Personal Structures at Palazzo Mora in Venice.</p>
+        <p>He has participated in a wide range of exhibitions including Stadtgalerie Kiel, Germany, SMK The Danish National Gallery, and KØS, Denmark, and has exhibited at several art museums in Scandinavia. His works are collected by The Danish Art Counsel, The Berkowitz Art Foundation, and numerous other private collections.  In 2024 his works will be part of Personal Structures at Palazzo Mora in Venice.</p>
+    </div>
+    </div>
+        <figure id="about_1">
+<img src="/imgs/about_1.webp" alt="">
+        </figure>
+</div>
+<div class="about_ebaychair">
+    <figure id="about_2">
+        <img src="/imgs/about_2.webp" alt="">
+    </figure>
+    <div class="textbox_about">
+        <h2>Ebay Office Chairs Within 20 km Of Copenhagen</h2>
+        <div class="text_flex">
+        <p>Per Lunde Jørgensen's popular works are based on office chairs found and purchased on the Danish sales platform Den Blå Avis within a limited search radius of 20 km. The covering of the office chair is removed and sewn onto a textile canvas for pictorial objects. They exist in an unstable state between the recognizable and the generally abstract.</p>
+
+        <p>In a previous exhibition at the Bonamatic gallery in 2018, these works were the focus. The exhibition's title, 'Reassembling the Social,' is taken from Bruno Latour's book of the same name. It points to how the works, in various ways, contemplate our arrangement of the social by actively intervening in it with new objects. They raise questions about the distribution of roles between the subjective and the objective and how what appears as static is sometimes mutable.</p>
+        </div>
+        </div>
+</div>
+
+</MainLayout>
+
+
+<style>
+.about_Per{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 100px;
+}
+
+.about_ebaychair{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+h1{
+   margin-bottom: 30px;
+}
+h2{
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.textbox_about{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.text_flex{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#about_1{
+    margin-right: -55px;
+    position: relative;
+}
+#about_1 img{
+    position: absolute;
+    right: 0;
+}
+#about_2{
+margin-left: -55px;
+width: 100%;
+}
+
+</style>
