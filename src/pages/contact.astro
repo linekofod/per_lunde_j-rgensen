@@ -1,7 +1,6 @@
 ---
 import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
-import Button from "../components/Button.astro";
 ---
 
 <MainLayout title="Contact">
@@ -12,10 +11,10 @@ import Button from "../components/Button.astro";
       <h1>CONTACT</h1>
 
       <!-- adresse -->
-      <h3>Address</h3><br />
+      <h3>Address</h3>
       <h5>Bonamatic</h5>
       <p>Degnestavnen 17, st.tv.</p>
-      <p>2400 København NV</p><br />
+      <p>2400 København NV</p>
 
       <h3>Opening hours</h3>
 
@@ -31,7 +30,7 @@ import Button from "../components/Button.astro";
           <div class="åbningstider"><h5>Sunday:</h5><p>Closed</p></div>
         </div>
         <!-- illustration -->
-        <img src="/imgs/illustration1.svg" alt="" /><br />
+        <img src="/imgs/illustration1.svg" alt="" />
       </div>
 
       <!-- kontakt -->
@@ -61,7 +60,6 @@ import Button from "../components/Button.astro";
           placeholder="Enter your message"
         /><br />
       </form>
-      <Button>SEND</Button>
     </div>
   </div>
 
@@ -69,8 +67,7 @@ import Button from "../components/Button.astro";
     .grid_1-1 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: center;
-      margin-top: 50px;
+      margin-top: 20px;
     }
     .grid_contact {
       display: grid;
@@ -86,7 +83,7 @@ import Button from "../components/Button.astro";
     input {
       width: 80%;
       padding: 10px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       border: 1px solid #000000;
     }
 
@@ -109,7 +106,11 @@ import Button from "../components/Button.astro";
 
     #enquiry {
       width: 80%;
-      padding-bottom: 80px;
+      padding-bottom: 120px;
+    }
+
+    h3 {
+      margin-top: 30px;
     }
   </style>
 </MainLayout>
