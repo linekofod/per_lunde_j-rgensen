@@ -2,11 +2,16 @@
 import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
 import Card from "../components/CardFormerExhibitions.astro";
+import CardLeft from "../components/CardFormerExhibitions2.astro";
+import Filter from "../components/FilterFormerExhibitions.astro";
+
 import Button from "../components/Button.astro";
 ---
 
 <MainLayout title="Former Exhitions">
   <h1>FORMER EXHIBITIONS</h1>
+<Filter/>
+
   <Card
     place="Viewing Room 2023"
     location="New York"
@@ -16,6 +21,13 @@ import Button from "../components/Button.astro";
     />
 
 <!-- omvendt card -->
+    <CardLeft
+    place="Nada 2023"
+    location="New York"
+    information="Concepts of intimacy, affection, touching and desire is the combing elements of Bonamatic’s presentation of works by Kasper Hesselbjerg and Per Lunde Jørgensen. Food understood as both edible matter and part of a semiotic system, combined with  the everyday preowned object and painterly interventions in Airbnb homes turned into a proven field of artistic expression."
+    imgPath="../public/imgs/formerexhibitions/nada2023_newyork.webp"
+   buttonlink="https://www.newartdealers.org/programs/nada-new-york-2023/presentations/853"/>
+<!-- omvendt card -->
 
 <Card
 place="Nada 2022"
@@ -24,6 +36,14 @@ information="Preowned curtains collected in suburban areas around Copenhagen, co
 imgPath="../public/imgs/formerexhibitions/Nada2022_miami.webp"
 buttonlink="https://www.newartdealers.org/programs/nada-miami-2022/artworks/8405"
 />
+
+<!-- omvendt card -->
+<CardLeft
+place="Nada 2022"
+location="New York"
+information="There are similar interventive traits at play in the works of Per Lunde Jørgensen, with works being based on searching, collecting and transforming preowned chairs and sofas bought on Den Blå Avis, using a preset search radius that determines the projects’ spatial area, and at the same time a specific social demography. In another series he rents private homes on Airbnb or hotel rooms, where he performs full scale frottage on canvas, resulting in some large graphite “paintings”."
+imgPath="../public/imgs/formerexhibitions/nada2022_newyork.webp"
+buttonlink="https://www.newartdealers.org/programs/nada-new-york-2022/artworks/4048"/>
 <!-- omvendt card -->
 
 <Card
@@ -35,3 +55,4 @@ buttonlink="https://kunsten.nu/artguide/calendar/reassembling-the-social/"
 />
 
 </MainLayout>
+
