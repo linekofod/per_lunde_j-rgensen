@@ -88,7 +88,7 @@ import Button from "../components/Button.astro";
       width: 80%;
       padding: 10px;
       margin-bottom: 50px;
-      border: 1px solid #000000;
+      border: 1px solid var(--sort100Color);
     }
 
     form label {
@@ -124,6 +124,38 @@ import Button from "../components/Button.astro";
       left: 37%;
       top: -160px;
       z-index: 0;
+    }
+
+    /* Mobil version */
+    @media screen and (max-width: 800px) {
+      .vl {
+        display: none;
+      }
+      .form-container {
+        display: block;
+      }
+      .grid_1-1 {
+        display: block;
+      }
+      .grid_contact {
+        display: block;
+      }
+      img {
+        margin-top: 15%;
+        width: 40%;
+      }
+
+      .form-container {
+        margin-top: 20px;
+        grid-column: 2;
+      }
+
+      input {
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 25px;
+        border: 1px solid #000000;
+      }
     }
   </style>
 </MainLayout>
