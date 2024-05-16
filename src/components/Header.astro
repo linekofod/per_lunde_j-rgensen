@@ -12,9 +12,9 @@ import "../styles/style.css";
     <ul class="menu">
       <li><a href="/">Home</a></li>
       <li><a href="/artworks">Artworks</a></li>
-      <li><a href="/about">About</a></li>
+      <li><a href="/about">About the artist</a></li>
       <li><a href="/former_exhibitions">Former Exhibitions</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="/contact">Get in touch</a></li>
     </ul>
     <div class="burger">
       <div class="bar"></div>
@@ -28,8 +28,9 @@ import "../styles/style.css";
   .header {
     display: flex;
     justify-content: space-between;
-    background-color: var(--beigeColor);
     margin: 0 30px;
+    position: relative;
+    z-index: 1;
   }
   nav {
     display: flex;
@@ -43,7 +44,6 @@ import "../styles/style.css";
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 20px;
   }
   .menu li:first-child {
     display: none;
@@ -109,8 +109,9 @@ import "../styles/style.css";
       background-color: var(--hvidColor);
       position: absolute;
       top: 0;
-      left: 0;
-      width: 100%;
+      left: -30px;
+      width: 390px;
+      height: 100vh;
       padding: 100px 0 0 20px;
     }
   }

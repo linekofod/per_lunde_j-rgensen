@@ -1,0 +1,100 @@
+---
+import "../../styles/style.css";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Button from "../../components/Button.astro";
+export async function getStaticPaths() {
+  const data = await fetch(
+    "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc",
+    {
+      method: "GET",
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwb3NiZWxidWVlbXV6b25xaXV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ3MzY2NzEsImV4cCI6MjAzMDMxMjY3MX0.7RC3yfMry34vETtGOmQWAujgxwf9O7ONYsWoLMtoagM",
+      },
+    }
+  ).then((response) => response.json());
+
+  return data.map((artwork) => {
+    return {
+      params: { slug: artwork.slug },
+      props: { data: artwork },
+    };
+  });
+}
+
+const { data } = Astro.props;
+console.log(data);
+---
+
+<!-- Style og skriv forklaringer (brug dem fra dine noter) --><!-- Spørg pigerne om "Within 20 km Of Copenhagen" -->
+<MainLayout>
+  <section class="grid_1-1">
+    <figure>
+      <img class="large_img" src=`/imgs/artworks/${data.img}` alt="" />
+      <div class="zoom_imgs">
+        <img src="/imgs/artworks/zoom1.png" alt="" />
+        <img src="/imgs/artworks/zoom2.png" alt="" />
+      </div>
+    </figure>
+    <div class="artwork_info">
+      <div class="title_location">
+        <h2>{data.title}</h2>
+        <h3>{data.location}</h3>
+      </div>
+      <p class=".p_small">{data.description}</p>
+      <div class="material_size">
+        <p class=".p_small">{data.material}</p>
+        <p class=".p_small grey">{data.size}</p>
+      </div>
+      <div class="button">
+        <Button description="/contact">Get in touch</Button>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+  h2 {
+    line-height: 1.2;
+  }
+  h3 {
+    text-transform: uppercase;
+  }
+  figure {
+    margin: -160px 0 0 -100px;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .large_img {
+    height: 80vh;
+  }
+  .zoom_imgs {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 5px;
+  }
+  .grey {
+    color: var(--sort60Color);
+  }
+  .artwork_info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .material_size {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .button {
+    margin-top: 20px;
+  }
+</style>

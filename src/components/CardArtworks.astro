@@ -1,0 +1,36 @@
+---
+import "../styles/style.css";
+const { data } = Astro.props;
+console.log(data);
+---
+
+<article>
+  <a class="card" href={`artworks/${data.slug}`}>
+    <figure>
+      <img src=`/imgs/artworks/${data.img}` alt="" />
+    </figure>
+    <p>{data.size}</p>
+    <h4 class="h_bold">{data.title}</h4>
+    <h5>{data.location}</h5>
+  </a>
+</article>
+
+<style>
+  h4 {
+    font-size: 23px;
+  }
+  p {
+    color: var(--sort60Color);
+  }
+  a {
+    text-transform: none;
+  }
+  figure img {
+    object-fit: cover;
+    height: 398px;
+    width: 410px;
+  }
+  figure:hover {
+    opacity: 0.8;
+  }
+</style>
