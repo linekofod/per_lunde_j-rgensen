@@ -1,11 +1,13 @@
 ---
 import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
 ---
 
 <MainLayout title="Contact">
   <!-- overskrift -->
   <div class="grid_contact">
+    <div class="vl"></div>
     <!-- Venstre grid -->
     <div>
       <h1>CONTACT</h1>
@@ -60,6 +62,7 @@ import MainLayout from "../layouts/MainLayout.astro";
           placeholder="Enter your message"
         /><br />
       </form>
+      <Button>SEND</Button>
     </div>
   </div>
 
@@ -70,6 +73,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       margin-top: 20px;
     }
     .grid_contact {
+      position: relative;
       display: grid;
       grid-template-columns: 1fr 1fr;
       margin: 20px;
@@ -83,7 +87,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     input {
       width: 80%;
       padding: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
       border: 1px solid #000000;
     }
 
@@ -111,6 +115,13 @@ import MainLayout from "../layouts/MainLayout.astro";
 
     h3 {
       margin-top: 30px;
+    }
+
+    .vl {
+      border-left: 1px solid var(--sort100Color);
+      height: 500px;
+      position: absolute;
+      left: 40%;
     }
   </style>
 </MainLayout>
