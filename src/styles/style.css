@@ -105,10 +105,11 @@ main {
     background-color: var(--hvidColor);
     color: var(--sort100Color);
     margin: 56px;
+    position: relative;
 }
 
 /* Mobil version */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     h1 {
         font-size: 40px;
     }
