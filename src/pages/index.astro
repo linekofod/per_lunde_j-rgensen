@@ -17,82 +17,94 @@ import Button from "../components/Button.astro";
 </MainLayout>
 
 <style>
-/* Desk version */
-article {
-    position: relative;
-    background-image: url('/imgs/index.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
-    width: 100vw;
-    margin-bottom:-60px;
-    margin-top: -70px;
-    margin-left: -56px;
+/* Desktop skærm*/
+
+/* Styling på <article> hvor baggrundsbilldet er */
+    article {
+    position: relative; /* Position relativ */
+    background-image: url('/imgs/index.webp'); /* Baggrundsbillede */
+    background-size: cover; /* Dækker hele elementet */
+    background-repeat: no-repeat; /* Ingen gentagelse af baggrundsbillede */
+    background-position: center; /* Centreret baggrundsbillede */
+    height: 100vh; /* 100% af viewportens højde */
+    width: 100vw; /* 100% af viewportens bredde */
+    margin-bottom:-60px; /* Negativ bundmargin */
+    margin-top: -70px; /* Negativ topmargin */
+    margin-left: -56px; /* Negativ venstremargin */
 }
 
+/* Styling af container hvor H1 og knap indgår */
 .navn_knap{
-margin-bottom: 110px;
-position: absolute;
-bottom: 0;
-display: flex;
-flex-direction: column;
-gap: 35px;
-width: fit-content;
-margin-left: 56px;
+    margin-bottom: 110px; /* Bundmargin */
+    position: absolute; /* Position absolut */
+    bottom: 0; /* Placeret nederst */
+    display: flex; /* Vis som flekselement */
+    flex-direction: column; /* Arranger elementer i en kolonne */
+    gap: 35px; /* Afstand mellem elementer */
+    width: fit-content; /* Tilpasser bredden til indholdet */
+    margin-left: 56px; /* Venstremargin */
 }
 
 h1{
-    line-height: 1;
+    line-height: 1; /* Juster linjehøjde */
 }
 
+/* Styling af "Per Lunde" H1 */
 .fornavn{
-    margin-left: 6px;
-    top: 525px;
-    bottom: 30px;
+    margin-left: 6px; /* Venstremargin */
+    top: 525px; /* Afstand fra toppen */
+    bottom: 30px; /* Afstand fra bunden */
 }
 
+/* Styling af "Jørgensen" H1  */
 .efternavn{
-    margin-left: -16px;
-    top: 585px;
+    margin-left: -16px; /* Venstremargin */
+    top: 585px; /* Afstand fra toppen */
 }
 
-/* Mobil version */
+/* Mobilversion */
 
 @media screen and (max-width: 800px) {
     
+    /* Styling på <article> hvor baggrundsbilldet er i mobilversion */
     article {
-    position: relative;
-    background-image: url('/imgs/index.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 1131px;
-    margin: -270px -30px -60px -30px;
-}
+        position: relative; /* Position relativ */
+        background-image: url('/imgs/index.webp'); /* Baggrundsbillede */
+        background-size: cover; /* Dækker hele elementet */
+        background-repeat: no-repeat; /* Ingen gentagelse af baggrundsbillede */
+        background-position: center; /* Centreret baggrundsbillede */
+        height: 1131px; /* Fastsat højde */
+        margin: -270px -30px -60px -30px; /* Marginjustering */
+    }
 
+    /* Styling af container hvor H1 og knap indgår i mobilversionen */
     .navn_knap{
-    margin-left: 25px;
-    margin-bottom: 185px;
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    width: fit-content;
+        margin-left: 25px; /* Venstremargin */
+        margin-bottom: 185px; /* Bundmargin */
+        position: absolute; /* Position absolut */
+        bottom: 0; /* Placeret nederst */
+        display: flex; /* Vis som flekselement */
+        flex-direction: column; /* Arranger elementer i en kolonne */
+        gap: 25px; /* Afstand mellem elementer */
+        width: fit-content; /* Tilpasser bredden til indholdet */
     }
+
+    /* H1 i mobilversionen */
     h1{
-    line-height: 1;
-}
-
-    .fornavn{
-    top: 525px;
-    bottom: 30px;
-    margin-left: 1px;
+        line-height: 1; /* Juster linjehøjde */
     }
 
+   /* Styling af "Per Lunde" H1 i mobilversionen */
+    .fornavn{
+        top: 525px; /* Afstand fra toppen */
+        bottom: 30px; /* Afstand fra bunden */
+        margin-left: 1px; /* Venstremargin */
+    }
+
+    /* Styling af "Jørgensen" H1 i mobilversionen */
     .efternavn{
-    margin-left: -11px;
-    top: 585px;
-}
+        margin-left: -11px; /* Venstremargin */
+        top: 585px; /* Afstand fra toppen */
+    }
+
 </style>
