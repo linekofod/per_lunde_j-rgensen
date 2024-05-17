@@ -5,25 +5,20 @@ const { place, location, information, imgPath, buttonlink } = Astro.props;
 ---
 
 <section class="border">
-  
-  <div class="box">
-    <h3>{place}</h3>
-    <div class="flex_row">
-      <div class="text">
-        <h4>{location}</h4>
-        <p>
-          {information}
-        </p>
-
-      </div>
-      <div class="img_container">
-        <img src={imgPath} alt="Viewing Room New York" />
-      </div>
+  <div class="flex_row">
+    <div class="img_container">
+      <img src={imgPath} alt="Viewing Room New York" />
     </div>
-    
+
+    <div class="box">
+      <h3>{place}</h3>
+      <h4>{location}</h4>
+      <p>
+        {information}
+      </p>
+    </div>
   </div>
   <Button destination={buttonlink}> Read More</Button>
-
 </section>
 
 <style>
@@ -48,8 +43,12 @@ const { place, location, information, imgPath, buttonlink } = Astro.props;
       display: flex;
       align-items: center;
     }
-  }
 
+    .right {
+      display: flex;
+      margin-left: 50%;
+    }
+  }
 
   .img_container {
     height: 250px;
@@ -64,7 +63,6 @@ const { place, location, information, imgPath, buttonlink } = Astro.props;
     display: block;
   }
 
-
   .border {
     position: relative;
     bottom: 0;
@@ -72,6 +70,5 @@ const { place, location, information, imgPath, buttonlink } = Astro.props;
     border-top: 1px solid var(--sort100Color);
     margin-top: 3%;
     margin-bottom: 2%;
-   
   }
 </style>
