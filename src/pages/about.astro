@@ -64,6 +64,8 @@ h2{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-top: -5px;
+    margin-bottom: 25px;
 }
 
 #about_1{
@@ -71,12 +73,63 @@ h2{
     position: relative;
 }
 #about_1 img{
-    position: absolute;
-    right: 0;
+    display: block;
+    width: 100%;
+    margin-right: 10px;
+    margin-left: 20px;
 }
 #about_2{
 margin-left: -55px;
 width: 100%;
+}
+
+/* Mobil version */
+
+@media screen and (max-width: 800px) {
+    
+    .about_Per{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.about_ebaychair{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+h1{
+   margin-bottom: 30px;
+}
+h2{
+    margin-top: -15px;
+}
+
+.textbox_about{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    order:1;3
+}
+
+.text_flex{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    order:1;
+}
+
+#about_1{
+    width: 100vw;
+    display: block;
+    order: 2;
+    margin: 0 0 0 -49px;
+}
+
+#about_2{
+    width: 100vw;
+    display: block;
+    order: 2;
+    margin: 0 0 0 -30.5px;
 }
 
 </style>

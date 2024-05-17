@@ -79,6 +79,8 @@ import Button from "../components/Button.astro";
       position: relative;
     }
 
+    /* form */
+
     .form-container {
       margin-top: 120px;
       grid-column: 2;
@@ -95,6 +97,13 @@ import Button from "../components/Button.astro";
       font-family: Inter-Regular;
     }
 
+    #enquiry {
+      width: 80%;
+      padding-bottom: 120px;
+    }
+
+    /* åbningstider */
+
     .åbningstider {
       display: flex;
       flex-direction: row;
@@ -108,14 +117,11 @@ import Button from "../components/Button.astro";
       gap: 0px;
     }
 
-    #enquiry {
-      width: 80%;
-      padding-bottom: 120px;
-    }
-
     h3 {
       margin-top: 30px;
     }
+
+    /* linje */
 
     .vl {
       border-left: 1px solid var(--sort100Color);
@@ -128,12 +134,13 @@ import Button from "../components/Button.astro";
 
     /* Mobil version */
     @media screen and (max-width: 800px) {
+      /* linje forsvinder, mobilversion */
       .vl {
         display: none;
       }
-      .form-container {
-        display: block;
-      }
+
+      /* grid */
+
       .grid_1-1 {
         display: block;
       }
@@ -144,6 +151,8 @@ import Button from "../components/Button.astro";
         margin-top: 15%;
         width: 40%;
       }
+
+      /* Form mobilversion */
 
       .form-container {
         margin-top: 20px;
