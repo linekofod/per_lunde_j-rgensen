@@ -5,10 +5,7 @@ import Button from "../components/Button.astro";
 ---
 
 <MainLayout title="Home">
-
-<figure>
-    <img src="imgs/index.webp" alt="">
-</figure>
+<article>
 <div class="navn_knap">
     <div>
 <h1 class="fornavn">Per Lunde </h1>
@@ -16,43 +13,86 @@ import Button from "../components/Button.astro";
 <div>
 <Button destination="/artworks">See artworks</Button></div>
 </div>
+</article>
 </MainLayout>
+
 <style>
-figure{
+/* Desk version */
+article {
+    position: relative;
+    background-image: url('/imgs/index.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     height: 100vh;
     width: 100vw;
-    margin-top: -160px;
+    margin-bottom:-60px;
+    margin-top: -70px;
     margin-left: -56px;
 }
 
-figure img{
-    position: relative;
-}
-
 .navn_knap{
-margin-bottom: 40px;
+margin-bottom: 110px;
 position: absolute;
 bottom: 0;
 display: flex;
 flex-direction: column;
-gap: 30px;
+gap: 35px;
 width: fit-content;
+margin-left: 56px;
 }
 
 h1{
-    line-height: 1.1;
+    line-height: 1;
 }
 
 .fornavn{
+    margin-left: 6px;
     top: 525px;
     bottom: 30px;
 }
 
 .efternavn{
-    margin-left: -22.6px;
+    margin-left: -16px;
     top: 585px;
 }
 
+/* Mobil version */
 
+@media screen and (max-width: 800px) {
+    
+    article {
+    position: relative;
+    background-image: url('/imgs/index.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1131px;
+    margin: -270px -30px -60px -30px;
+}
 
+    .navn_knap{
+    margin-left: 25px;
+    margin-bottom: 185px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: fit-content;
+    }
+    h1{
+    line-height: 1;
+}
+
+    .fornavn{
+    top: 525px;
+    bottom: 30px;
+    margin-left: 1px;
+    }
+
+    .efternavn{
+    margin-left: -11px;
+    top: 585px;
+}
 </style>

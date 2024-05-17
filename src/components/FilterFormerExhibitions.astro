@@ -1,0 +1,96 @@
+---
+import "../styles/style.css";
+---
+
+<article class="filter">
+  <div class="box">
+    <h4>Filter</h4>
+    <div class="arrow down"></div>
+  </div>
+  <div class="filter_options">
+    <a href="#">Scandinavian</a>
+    <a href="#">Worldwide</a>
+  </div>
+</article>
+
+<style>
+  .filter {
+    width: 1310px;
+    height: 60px;
+    position: relative;
+    border: 1px solid var(--sort100Color);
+    margin: 24px 0 54px 0;
+  }
+  .box {
+    width: 1310px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+  }
+  h4 {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
+  .arrow {
+    border: solid var(--sort100Color);
+    border-width: 0 1.5px 1.5px 0;
+    display: inline-block;
+    padding: 7px;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+  }
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    top: 26px;
+  }
+  .active {
+    visibility: visible !important;
+  }
+  .filter_options {
+    display: flex;
+    visibility: hidden;
+    background-color: var(--hvidColor);
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0 30px 20px;
+    margin-top: 58px;
+    position: absolute;
+    left: -1px;
+    width: 1310px;
+    z-index: 1;
+    border: 1px solid var(--sort100Color);
+    border-top: 0;
+  }
+  a {
+    text-transform: none;
+  }
+  a:hover {
+    color: var(--rød100Color);
+  }
+</style>
+
+<script>
+  // Definerer nogle variabler
+  const box = document.querySelector(".box");
+  const filter = document.querySelector(".filter_options");
+  const options = document.querySelector(".filter_options a");
+  const arrow = document.querySelector(".arrow");
+
+  // Kalder funtion på click af filter box.
+  // Funktionen tilføjer klassen .active, når der klikkes på burgermenuen.
+  box.addEventListener("click", () => {
+    filter.classList.toggle("active");
+    arrow.classList.toggle("up");
+  });
+</script>
+

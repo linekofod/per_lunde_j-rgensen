@@ -1,6 +1,40 @@
 ---
 import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
+import CardArtworks from "../components/CardArtworks.astro";
+import FilterArtworks from "../components/FilterArtworks.astro";
+
+const data = await fetch(
+  // Fetcher kun det data vi skal bruge med select (title, size, location, img og slug).
+  "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc&select=title,size,location,img,slug",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwb3NiZWxidWVlbXV6b25xaXV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ3MzY2NzEsImV4cCI6MjAzMDMxMjY3MX0.7RC3yfMry34vETtGOmQWAujgxwf9O7ONYsWoLMtoagM",
+    },
+  }
+).then((res) => res.json());
+console.log(data);
 ---
 
-<MainLayout title="Artworks" />
+<MainLayout title="Artworks">
+  <h1>Artworks</h1>
+  <FilterArtworks />
+  <section class="artworks">
+    {
+      data.map((artwork) => {
+        return <CardArtworks data={artwork} />;
+      })
+    }
+  </section>
+</MainLayout>
+
+<style>
+  .artworks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 420px));
+    justify-content: flex-start;
+    gap: 30px;
+  }
+</style>
