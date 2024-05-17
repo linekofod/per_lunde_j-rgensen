@@ -45,11 +45,11 @@ import "../styles/style.css";
     padding: 7px;
     position: absolute;
     right: 20px;
-    top: 18px;
   }
   .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+    top: 18px;
   }
   .up {
     transform: rotate(-135deg);
@@ -79,6 +79,34 @@ import "../styles/style.css";
   }
   a:hover {
     color: var(--rød100Color);
+  }
+
+  /* Mobil version */
+  @media screen and (max-width: 800px) {
+    .filter {
+      width: 336px;
+      height: 50px;
+    }
+    .filter_options {
+      margin-top: 47px;
+    }
+    .box {
+      width: 336px;
+      height: 50px;
+    }
+    .filter_options {
+      width: 336px;
+      padding: 3px 0 20px 21px;
+    }
+    .filter_options a {
+      font-size: 14px;
+    }
+    .down {
+      top: 13px;
+    }
+    .up {
+      top: 20px;
+    }
   }
 </style>
 
