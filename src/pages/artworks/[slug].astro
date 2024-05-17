@@ -38,7 +38,7 @@ console.log(data);
     </figure>
     <div class="artwork_info">
       <div class="title_location">
-        <div>
+        <div class="titles">
           <h2>{data.title}</h2>
           <h2 id="title_2">{data.title2}</h2>
         </div>
@@ -112,6 +112,25 @@ console.log(data);
     gap: 10px;
   }
   .button {
-    margin-top: 20px;
+    margin: 20px 0 40px 0;
+  }
+
+  /* Mobil version */
+  @media screen and (max-width: 900px) {
+    .grid_1-1 {
+      display: block;
+    }
+    figure {
+      margin: -160px -28px 0 -30px;
+    }
+    h2 {
+      margin: 0 10px 7px 0;
+    }
+    #title_2 {
+      font-size: 26px;
+    }
+    .artwork_info {
+      margin-top: 30px;
+    }
   }
 </style>
