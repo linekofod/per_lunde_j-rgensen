@@ -26,7 +26,7 @@ const { place, location, information, imgPath, buttonlink } = Astro.props;
 
 <style>
 
-/* (responsiv) */
+/* Desktop */
 @media screen and (min-width: 600px) {
     .text {
       display: flex;
@@ -56,11 +56,8 @@ const { place, location, information, imgPath, buttonlink } = Astro.props;
     }
 
     .img_container img {
-     top: -50%;
-     left: 60px;
-      width: 100%;
-      object-fit: cover;
-    }
+      width: 100%; 
+        }
 
     .border {
     border-top: solid 1px black;
@@ -70,6 +67,7 @@ const { place, location, information, imgPath, buttonlink } = Astro.props;
   }
   }
 
+/* Mobile */
   @media screen and (max-width: 700px) {
 
   .flex_row{
@@ -88,13 +86,14 @@ const { place, location, information, imgPath, buttonlink } = Astro.props;
     margin-top: 1%;
   }
 
+
   .img_container {
       height: 255px;
       margin-left: -55px;
-      width: 480px;
+      width: 400px;
       overflow: hidden;
-      margin-bottom: 10%;
-      margin-top: 10%;
+      margin-bottom: 2%;
+      margin-top: 2%;
     }
 
 
