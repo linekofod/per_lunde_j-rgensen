@@ -32,13 +32,16 @@ console.log(data);
     <figure>
       <img class="large_img" src=`/imgs/artworks/${data.img}` alt="" />
       <div class="zoom_imgs">
-        <img src="/imgs/artworks/zoom1.png" alt="" />
-        <img src="/imgs/artworks/zoom2.png" alt="" />
+        <img src=`/imgs/artworks/zoom_artworks/${data.zoom_img1}` alt="" />
+        <img src=`/imgs/artworks/zoom_artworks/${data.zoom_img2}` alt="" />
       </div>
     </figure>
     <div class="artwork_info">
       <div class="title_location">
-        <h2>{data.title}</h2>
+        <div>
+          <h2>{data.title}</h2>
+          <h2 id="title_2">{data.title2}</h2>
+        </div>
         <h3>{data.location}</h3>
       </div>
       <p class=".p_small">{data.description}</p>
@@ -47,7 +50,7 @@ console.log(data);
         <p class=".p_small grey">{data.size}</p>
       </div>
       <div class="button">
-        <Button description="/contact">Get in touch</Button>
+        <Button destination="/contact">Get in touch</Button>
       </div>
     </div>
   </section>
@@ -56,17 +59,25 @@ console.log(data);
 <style>
   .grid_1-1 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    grid-template-columns: 550px 800px;
+    gap: 40px;
   }
   h2 {
     line-height: 1.2;
   }
+  #title_2 {
+    font-size: 40px;
+  }
   h3 {
     text-transform: uppercase;
   }
+  .title_location {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   figure {
-    margin: -160px 0 0 -100px;
+    margin: -160px 0 0 -60px;
     z-index: 0;
     display: flex;
     flex-direction: column;
@@ -74,12 +85,18 @@ console.log(data);
   }
   .large_img {
     height: 80vh;
+    object-fit: cover;
   }
   .zoom_imgs {
     display: flex;
     flex-direction: row;
     justify-content: end;
     gap: 5px;
+  }
+  .zoom_imgs img {
+    width: 50%;
+    height: 200px;
+    object-fit: cover;
   }
   .grey {
     color: var(--sort60Color);

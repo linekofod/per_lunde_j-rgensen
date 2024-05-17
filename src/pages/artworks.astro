@@ -5,8 +5,7 @@ import CardArtworks from "../components/CardArtworks.astro";
 import FilterArtworks from "../components/FilterArtworks.astro";
 
 const data = await fetch(
-  // Fetcher kun det data vi skal bruge med select (title, size, location, img og slug).
-  "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc&select=title,size,location,img,slug",
+  "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc",
   {
     method: "GET",
     headers: {
@@ -36,5 +35,12 @@ console.log(data);
     grid-template-columns: repeat(auto-fill, minmax(420px, 420px));
     justify-content: flex-start;
     gap: 30px;
+  }
+
+  /* Mobil version */
+  @media screen and (max-width: 800px) {
+    .artworks {
+      display: block;
+    }
   }
 </style>
