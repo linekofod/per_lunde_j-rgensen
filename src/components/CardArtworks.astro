@@ -4,7 +4,9 @@ const { data } = Astro.props;
 console.log(data);
 ---
 
+<!-- Indsætter data i de forskellige elementer på cardet -->
 <article>
+  <!-- Henter dataen slug ind på cardsene, så når man klikker på et card, så går man til en ny side (singleview), hvor urlen slutter på slug navnet. -->
   <a class="card" href={`artworks/${data.slug}`}>
     <figure>
       <img src=`/imgs/artworks/${data.img}` alt="" />
@@ -30,6 +32,7 @@ console.log(data);
     text-transform: none;
   }
   figure img {
+    /* Så billederne på hvert card har samme størrelse. Object-fit: cover; gør, at billederne ikke bliver strukket ud af proportioner */
     object-fit: cover;
     height: 398px;
     width: 420px;

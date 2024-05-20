@@ -2,7 +2,9 @@
 import "../../styles/style.css";
 import MainLayout from "../../layouts/MainLayout.astro";
 import Button from "../../components/Button.astro";
+// Bruger getStaticPaths til at få al dataen fra hvert element frem.
 export async function getStaticPaths() {
+  // Fetcher dataen
   const data = await fetch(
     "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc",
     {
@@ -26,7 +28,7 @@ const { data } = Astro.props;
 console.log(data);
 ---
 
-<!-- Style og skriv forklaringer (brug dem fra dine noter) --><!-- Spørg pigerne om "Within 20 km Of Copenhagen" -->
+<!-- Sætter data ind på singleview siden -->
 <MainLayout>
   <section class="grid_1-1">
     <figure>

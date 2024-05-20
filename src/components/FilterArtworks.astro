@@ -1,22 +1,80 @@
 ---
 import "../styles/style.css";
+import CardArtworks from "../components/CardArtworks.astro";
+
+const data = await fetch(
+  "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwb3NiZWxidWVlbXV6b25xaXV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ3MzY2NzEsImV4cCI6MjAzMDMxMjY3MX0.7RC3yfMry34vETtGOmQWAujgxwf9O7ONYsWoLMtoagM",
+    },
+  }
+).then((res) => res.json());
+console.log(data);
+
+// Opretter et array med alle titlerne.
+const titles = [
+  "Ebay Office Chairs",
+  "Office Chairs Arranged by Value",
+  "Two Seater Copenhagen",
+  "Airbnb Frottage",
+  "Reviews",
+];
 ---
 
+<!-- Filter boksen -->
 <article class="filter">
   <div class="box">
     <h4>Filter</h4>
     <div class="arrow down"></div>
   </div>
+  <!-- Filter options der bliver vist, når man klikker på filter boksen -->
   <div class="filter_options">
-    <a href="#">Ebay Office Chairs</a>
-    <a href="#">Office Chairs Arranged by Value</a>
-    <a href="#">Two Seater Copenhagen</a>
-    <a href="#">Airbnb Frottage</a>
-    <a href="#">Reviews</a>
+    {
+      // Mapper over arrayet titles og dynamisk generere et <a> tag for hver titel i arrayet.
+      titles.map((title) => (
+        // Genererer et id for hver titel.
+        // ${title.replace(/\s+/g, "_") betyder, mellemrum skal erstattes med underscore.
+        // .toLowerCase()} betyder, at alle bogstaver i id'et skal stå med små bogstaver.
+        // For eksempel, hvis titlen er "Ebay Office Chairs", vil id'et være "ebay_office_chairs_btn".
+        <a id={`${title.replace(/\s+/g, "_").toLowerCase()}_btn`} href="#">
+          {/* Indsætter titlen som linktekst */}
+          {title}
+        </a>
+      ))
+    }
   </div>
 </article>
 
+<!-- Sektion der viser artworks med den titel man har klikket på oppe i filter options -->
+{
+  // Mapper over arrayet titles og dynamisk generere HTML-sektioner for hver titel i arrayet.
+  titles.map((title) => (
+    // Genererer en klasse for hver titel.
+    // ${title.replace(/\s+/g, "_") betyder, mellemrum skal erstattes med underscore.
+    // .toLowerCase()} betyder, at alle bogstaver i klassen skal stå med små bogstaver.
+    // For eksempel, hvis titlen er "Ebay Office Chairs", vil klassen være "ebay_office_chairs".
+    <section class={`data ${title.replace(/\s+/g, "_").toLowerCase()}`}>
+      {/* Indsætter titel og en horizontal linje (<hr />) */}
+      <h3>{title}</h3>
+      <hr />
+      <div class="data_grid">
+        {/* Filtrerer dataen for at finde kun de elementer, der matcher den nuværende title. */}
+        {data
+          .filter((artwork) => artwork.title === title)
+          .map((artwork) => (
+            // Indsætter dataen i et CardArtworks komponent.
+            <CardArtworks data={artwork} />
+          ))}
+      </div>
+    </section>
+  ))
+}
+
 <style>
+  /* Filter boksen */
   .filter {
     width: 100%;
     height: 60px;
@@ -46,22 +104,25 @@ import "../styles/style.css";
     position: absolute;
     right: 20px;
   }
+
+  /* Pilen vender nedad */
   .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     top: 18px;
   }
+
+  /* Pilen vender opad */
   .up {
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
     top: 26px;
   }
-  .active {
-    visibility: visible !important;
-  }
+
+  /* Filter options */
   .filter_options {
     display: flex;
-    visibility: hidden;
+    visibility: hidden; /* Filter options er skjulte indtil man klikker på en af titlerne, og de bliver vist. */
     background-color: var(--hvidColor);
     flex-direction: column;
     gap: 10px;
@@ -70,7 +131,7 @@ import "../styles/style.css";
     position: absolute;
     left: 0;
     width: 100%;
-    z-index: 0;
+    z-index: 999;
     border: 1px solid var(--sort100Color);
     border-top: 0;
   }
@@ -79,6 +140,43 @@ import "../styles/style.css";
   }
   a:hover {
     color: var(--rød100Color);
+  }
+  .active {
+    visibility: visible !important; /* Filter options bliver vist */
+  }
+
+  /* Titel og streg over cardsene */
+  h3 {
+    margin-bottom: 5px;
+    margin-top: -10px;
+  }
+  hr {
+    margin-bottom: 40px;
+    background-color: var(--sort100Color);
+    border: none;
+    height: 1px;
+  }
+
+  /* Data sektionerne der bliver vist når man filtrerer */
+  .data {
+    display: none; /* Data sektionerne er skjulte indtil man klikker på en af titlerne i filter options */
+  }
+
+  /* Det data man får frem når man klikker på en af titlerne i filter options, bliver vist som et grid */
+  .data_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 420px));
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+  .show_data {
+    display: block !important; /* Dataen bliver vist */
+  }
+  .red_color {
+    color: var(
+      --rød100Color
+    ); /* Den røde farve titlerne i filter options får, når man klikker på dem */
   }
 
   /* Mobil version */
@@ -104,20 +202,48 @@ import "../styles/style.css";
     .up {
       top: 20px;
     }
+    .data_grid {
+      display: block;
+    }
   }
 </style>
 
 <script>
-  // Definerer nogle variabler
-  const box = document.querySelector(".box");
-  const filter = document.querySelector(".filter_options");
-  const options = document.querySelector(".filter_options a");
+  // Definerer variabler til filter boksen.
+  const filter_box = document.querySelector(".box");
+  const filter_options = document.querySelector(".filter_options");
   const arrow = document.querySelector(".arrow");
 
-  // Kalder funtion på click af filter box.
-  // Funktionen tilføjer klassen .active, når der klikkes på burgermenuen.
-  box.addEventListener("click", () => {
-    filter.classList.toggle("active");
+  // Tilføjer en click-event listener til filter boxen.
+  filter_box.addEventListener("click", () => {
+    // Viser og skjuler filter options med klassen "active", når man klikker på filter boksen.
+    filter_options.classList.toggle("active");
+    // Knappen vender op og ned med klassen "up", når man klikker på filter boksen.
     arrow.classList.toggle("up");
+  });
+
+  // Definerer et variabel, som er et array med alle titlerne.
+  const titles = [
+    "ebay_office_chairs",
+    "office_chairs_arranged_by_value",
+    "two_seater_copenhagen",
+    "airbnb_frottage",
+    "reviews",
+  ];
+
+  // forEach-metoden anvendes til at iterere over hver titel i titles arrayet.
+  titles.forEach((title) => {
+    // Defininerer variabler.
+    // (`#${title}_btn`) er den titel man trykker på i filter options.
+    // (`.${title}`) er den tilsvarende sektion der skal blive vist.
+    const btn = document.querySelector(`#${title}_btn`);
+    const section = document.querySelector(`.${title}`);
+    // Tilføjer en click-event listener til filter option knappen.
+    btn.addEventListener("click", () => {
+      // Toggler klassen "show_data" på sektionen (sektion bliver vist når man klikker på en titel i filter options, og forsvinder igen, når man klikker igen).
+      section.classList.toggle("show_data");
+      // Toggler klassen "red_color" på filter option knappen (knappen får en rød farve når man klikker på den).
+      btn.classList.toggle("red_color");
+    });
   });
 </script>
