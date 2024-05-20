@@ -53,48 +53,50 @@ const { place, location, information, imgPath, buttonlink } = Astro.props;
     }
 
     .img_container img {
+      transform: scale(1.2);
+align-content: center;
+top: -25px;
       width: 100%;
       display: block;
     }
 
-
-  .border {
-    border-top: solid 1px black;
-    margin-left: -55px;
-    margin-right: -55px;
-    margin-top: 2%;
-  }
+    .border {
+      border-top: solid 1px black;
+      margin-left: -55px;
+      margin-right: -55px;
+      margin-top: 2%;
+    }
   }
 
   @media screen and (max-width: 700px) {
-    .flex_row{
-    display: grid;
-  }
-  .text{
-    order: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-   margin-bottom: 5%;
-  }
-
-  .img_container img{
-    order: 2;
-    margin-top: 1%;
-  }
-
-  .img_container {
-      height: 255px;
-      margin-left: -55px;
-      width: 480px;
-      overflow: hidden;
-      margin-bottom: 10%;
-      margin-top: 10%;
+    .flex_row {
+      display: grid;
+    }
+    .text {
+      order: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 5%;
     }
 
-  article {
-    margin: 0;
-  }
-}
+    .img_container img {
+      transform: scale(1.5);
+      order: 2;
+      margin-top: 1%;
+    }
 
+    .img_container {
+      height: 255px;
+      margin-left: -55px;
+      width: 400px;
+      overflow: hidden;
+      margin-bottom: 2%;
+      margin-top: 2%;
+    }
+
+    article {
+      margin: 0;
+    }
+  }
 </style>
