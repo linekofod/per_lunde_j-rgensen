@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import CardArtworks from "../components/CardArtworks.astro";
 import FilterArtworks from "../components/FilterArtworks.astro";
 
+// Fetcher data
 const data = await fetch(
   "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc",
   {
@@ -20,7 +21,10 @@ console.log(data);
 <MainLayout title="Artworks">
   <h1>Artworks</h1>
   <FilterArtworks />
+  <h3>All</h3>
+  <hr />
   <section class="artworks">
+    <!-- Mapper over dataen, og indsætter det i komponentet CardArtworks -->
     {
       data.map((artwork) => {
         return <CardArtworks data={artwork} />;
@@ -30,11 +34,22 @@ console.log(data);
 </MainLayout>
 
 <style>
+  /* Artworks bliver vist som grid */
   .artworks {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(420px, 420px));
     justify-content: center;
     gap: 30px;
+  }
+  h3 {
+    margin-bottom: 5px;
+    margin-top: -10px;
+  }
+  hr {
+    margin-bottom: 40px;
+    background-color: var(--sort100Color);
+    border: none;
+    height: 1px;
   }
 
   /* Mobil version */
