@@ -1,17 +1,19 @@
 ---
 import "../styles/style.css";
+const { destination } = Astro.props;
 ---
 
-<div class="button">
+<a class="button" href={destination}>
   <div class="arrow up"></div>
-  <a href="">Sroll Up</a>
-</div>
+</a>
 
 <style>
   .button {
     position: fixed;
     bottom: 0;
     right: 0;
+    padding: 20px 20px 10px 20px;
+    z-index: 999;
   }
   .arrow {
     border: solid var(--sort100Color);
