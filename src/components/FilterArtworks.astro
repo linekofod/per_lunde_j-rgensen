@@ -1,17 +1,5 @@
 ---
 import "../styles/style.css";
-import CardArtworks from "../components/CardArtworks.astro";
-const data = await fetch(
-  "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc",
-  {
-    method: "GET",
-    headers: {
-      apikey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwb3NiZWxidWVlbXV6b25xaXV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ3MzY2NzEsImV4cCI6MjAzMDMxMjY3MX0.7RC3yfMry34vETtGOmQWAujgxwf9O7ONYsWoLMtoagM",
-    },
-  }
-).then((res) => res.json());
-console.log(data);
 ---
 
 <article class="filter">
@@ -132,12 +120,4 @@ console.log(data);
     filter.classList.toggle("active");
     arrow.classList.toggle("up");
   });
-
-  {
-    data
-      .filter((artwork) => artwork.title === "Ebay Office Chairs")
-      .map((artwork) => {
-        return <CardArtworks data={artwork} />;
-      });
-  }
 </script>
