@@ -38,35 +38,36 @@ const { place, location, information, imgPath, buttonlink, position } =
       display: flex;
       flex-direction: column;
       margin: 4%;
-      gap: 25px;
+      gap: 28px;
     }
     .text_right {
       display: flex;
       flex-direction: column;
       margin: 4%;
-      gap: 25px;
+      gap: 28px;
       order: 2;
     }
     /* laver flex row, laver rækken, som vores (tekst og  billede er på) */
     .flex_row {
-      margin-top: -3%;
-      margin-bottom: -2%;
+      margin-top: 2%;
+      margin-bottom: 2%;
       justify-content: space-between;
       display: flex;
       flex-direction: row;
       align-items: center;
+
     }
 
     /* Giver billedet de rigtige dimensioner */
     /* Laver container til billedet, så det kan få de rigtige mål. */
     .img_container {
-      height: 295px;
-      margin-right: 0px;
+      height: auto;
+       margin-left: 50px;
+      margin-right: 55px;
       width: 600px;
       overflow: hidden;
-      position: relative;
-      margin-bottom: 10%;
-      margin-top: 10%;
+      margin-bottom: 5%;
+      margin-top: 5%;
     }
     .img_container img {
       width: 100%;
@@ -107,7 +108,7 @@ const { place, location, information, imgPath, buttonlink, position } =
 
     /* Giver de rigtige dimensioner til vores billede, og fjerner det overskydene */
     .img_container {
-      height: 255px;
+      height: auto;
       margin-left: -55px;
       width: 400px;
       overflow: hidden;

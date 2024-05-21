@@ -28,9 +28,10 @@ import "../styles/style.css";
   .header {
     display: flex;
     justify-content: space-between;
-    margin: 0 30px;
+    padding: 0 30px;
     position: relative;
-    z-index: 1;
+    z-index: 0;
+    background-color: var(--hvidColor);
   }
   nav {
     display: flex;
@@ -50,11 +51,12 @@ import "../styles/style.css";
   }
   .menu a {
     padding: 20px 20px;
-    border: 1px solid transparent;
+    /* border: 1px solid transparent; */
   }
   .menu a:hover {
     padding: 20px 20px;
-    border: 1px solid var(--sort100Color);
+    /* border: 1px solid var(--sort100Color); */
+    color: var(--rød100Color);
   }
   .burger {
     width: 30px;
