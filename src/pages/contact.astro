@@ -82,14 +82,15 @@ import Button from "../components/Button.astro";
     /* form */
 
     .form-container {
-      margin-top: 120px;
+      margin-top: 0px;
       grid-column: 2;
     }
 
     input {
       width: 80%;
       padding: 10px;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
+      margin-top: 10px;
       border: 1px solid var(--sort100Color);
     }
 
@@ -118,8 +119,9 @@ import Button from "../components/Button.astro";
     }
 
     h3 {
-      margin-top: 30px;
-    }
+      margin-top: 15px;
+      margin-bottom: 25px;
+    } 
 
     /* linje */
 
@@ -131,6 +133,11 @@ import Button from "../components/Button.astro";
       top: -160px;
       z-index: 0;
     }
+
+    img {
+        margin-top: 10%;
+        width: 75%;
+      }
 
     /* Mobil version */
     @media screen and (max-width: 800px) {
@@ -155,7 +162,7 @@ import Button from "../components/Button.astro";
       /* Form mobilversion */
 
       .form-container {
-        margin-top: 20px;
+        margin-top: 10px;
         grid-column: 2;
       }
 
@@ -163,6 +170,7 @@ import Button from "../components/Button.astro";
         width: 80%;
         padding: 10px;
         margin-bottom: 25px;
+        margin-top:30px
         border: 1px solid #000000;
       }
     }
