@@ -22,7 +22,6 @@ console.log(data);
   <h1>Artworks</h1>
   <FilterArtworks />
   <h3>All</h3>
-  <hr />
   <section class="artworks">
     <!-- Mapper over dataen, og indsætter det i komponentet CardArtworks -->
     {
@@ -42,8 +41,7 @@ console.log(data);
     gap: 30px;
   }
   h3 {
-    margin-bottom: 5px;
-    margin-top: -10px;
+    margin: 0px 0 20px 0;
   }
   hr {
     margin-bottom: 40px;
@@ -56,6 +54,9 @@ console.log(data);
   @media screen and (max-width: 800px) {
     .artworks {
       display: block;
+    }
+    h3 {
+      margin: 0px 0 10px 0;
     }
   }
 </style>

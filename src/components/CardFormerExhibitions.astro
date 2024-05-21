@@ -1,7 +1,8 @@
 ---
 import "../styles/style.css";
 import Button from "../components/Button.astro";
-const { place, location, information, imgPath, buttonlink } = Astro.props;
+const { place, location, information, imgPath, buttonlink, position } =
+  Astro.props;
 ---
 
 <article class="container">
@@ -10,7 +11,7 @@ const { place, location, information, imgPath, buttonlink } = Astro.props;
     <!-- Class "flex_row laver rækken, med tekst i en side og billede i den anden." -->
     <div class="flex_row">
       <!-- Tekst -->
-      <div class="text">
+      <div class={position} id="text">
         <h3>{place}</h3>
         <h4>{location}</h4>
         <p>{information}</p>
@@ -32,12 +33,19 @@ const { place, location, information, imgPath, buttonlink } = Astro.props;
 <style>
   /* Desktop */
   @media screen and (min-width: 600px) {
-    /* Laver flex box til teksen  */
-    .text {
+    /* Laver flex box til teksen og fortæller om teksen skal være til venstre eller højre  */
+    .text_left {
       display: flex;
       flex-direction: column;
       margin: 4%;
       gap: 25px;
+    }
+    .text_right {
+      display: flex;
+      flex-direction: column;
+      margin: 4%;
+      gap: 25px;
+      order: 2;
     }
     /* laver flex row, laver rækken, som vores (tekst og  billede er på) */
     .flex_row {
@@ -82,7 +90,7 @@ const { place, location, information, imgPath, buttonlink } = Astro.props;
 
     /* Flex til teksen og der er også givet rækkefølge så teksten bliver vist først */
     /* Teksten har fået rækkeføgen 2 */
-    .text {
+    #text {
       order: 2;
       display: flex;
       flex-direction: column;
