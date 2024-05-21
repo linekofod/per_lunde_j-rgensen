@@ -1,5 +1,6 @@
 ---
 import "../styles/style.css";
+import Button from "./Button.astro";
 ---
 
 <div class="footer">
@@ -11,11 +12,20 @@ import "../styles/style.css";
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/artworks">Artworks</a></li>
-      <li><a href="/about">About</a></li>
+      <li><a href="/about">About the artist</a></li>
       <li><a href="/former_exhibitions">Former Exhibitions</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="/contact">Get in touch</a></li>
     </ul>
   </nav>
+  <div class="adresse_section">
+    <h5 class="h_bold">Address</h5>
+    <div class="adresse">
+      <p class="bold">Bonamatic</p>
+      <p>Degnestavnen 17, st.tv.</p>
+      <p>2400 København NV</p>
+    </div>
+    <a class="button" href="/contact">See opening hours</a>
+  </div>
   <div class="some">
     <h5 class="h_bold">Social Media</h5>
     <div class="some_icons">
@@ -35,7 +45,7 @@ import "../styles/style.css";
     border-top: 1px solid var(--sort100Color);
     padding: 68px 0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     z-index: 1;
     background-color: var(--hvidColor);
   }
@@ -63,6 +73,37 @@ import "../styles/style.css";
   li a:hover {
     color: var(--rød100Color);
   }
+
+  /* Adresse */
+  .bold {
+    font-weight: 600;
+  }
+  .adresse_section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .adresse {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-transform: uppercase;
+  }
+  .button {
+    font-size: 14px;
+    padding: 12px 15px;
+    border: 1px solid var(--sort100Color);
+    background-color: var(--hvidColor);
+    cursor: pointer;
+  }
+  .button:hover {
+    box-shadow: 5px 5px 4px #ac2a224d;
+    color: var(--rød100Color);
+  }
+
+  /* SoMe icons */
   .some {
     display: flex;
     flex-direction: column;

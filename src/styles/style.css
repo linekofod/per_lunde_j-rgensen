@@ -28,9 +28,11 @@ h1 {
 }
 h2, h3, h4, h5 {
     font-family: 'Inter-Regular';
+    color: var(--sort100Color);
 }
 .h_bold {
     font-family: 'Inter-Semibold';
+    color: var(--sort100Color);
 }
 h2 {
     font-size: 50px;
@@ -46,6 +48,7 @@ h5 {
 }
 p, .p_small, a {
     font-family: Helvetica;
+    color: var(--sort100Color);
 }
 p {
     font-size: 18px;
