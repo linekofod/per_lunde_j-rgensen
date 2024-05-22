@@ -1,0 +1,119 @@
+---
+import "../styles/style.css";
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+---
+
+<MainLayout title="Home">
+  <article>
+    <figure class="background_img zoom_out"></figure>
+    <div class="navn_knap fade_in">
+      <h1 class="titel">Per Lunde Jørgensen</h1>
+      <div>
+        <Button destination="/artworks">See artworks</Button>
+      </div>
+    </div>
+  </article>
+</MainLayout>
+
+<style>
+  /* Desktop skærm*/
+
+  /* Styling på <article> hvor baggrundsbilldet er */
+  .background_img {
+    background-image: url("/imgs/index4.webp"); /* Baggrundsbillede */
+    background-size: cover; /* Dækker hele elementet */
+    background-repeat: no-repeat; /* Ingen gentagelse af baggrundsbillede */
+    background-position: center; /* Centreret baggrundsbillede */
+    height: 101vh; /* 100% af viewportens højde */
+    width: 100vw; /* 100% af viewportens bredde */
+    margin: -160px -60px -60px -56px; /* Margin, så billedet fylder hele skærmen */
+  }
+
+  /* Styling af container hvor H1 og knap indgår */
+  .navn_knap {
+    position: absolute; /* Position absolut */
+    bottom: 70px; /* Placeret nederst */
+    display: flex; /* Vis som flekselement */
+    flex-direction: column; /* Arranger elementer i en kolonne */
+    gap: 35px; /* Afstand mellem elementer */
+    width: fit-content; /* Tilpasser bredden til indholdet */
+  }
+
+  h1 {
+    line-height: 1; /* Juster linjehøjde */
+  }
+
+  /* Zoom out animation på baggrundsbilledet */
+  .zoom_out {
+    animation-name: zoom_in_kf;
+    animation-duration: 3s;
+  }
+
+  @keyframes zoom_in_kf {
+    from {
+      scale: 1.5 1.5;
+    }
+  }
+
+  /* Fade in animation på titlen og knappen */
+  .fade_in {
+    animation-name: fade_in_kf;
+    animation-duration: 3s;
+  }
+
+  @keyframes fade_in_kf {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Mobilversion */
+
+  @media screen and (max-width: 800px) {
+    /* Styling på <article> hvor baggrundsbilldet er i mobilversion */
+    .background_img {
+      height: 890px;
+      width: auto;
+      margin: -160px -28px -60px -28px;
+    }
+
+    /* Styling af container hvor H1 og knap indgår i mobilversionen */
+    .navn_knap {
+      margin: 0 0 40px 0px;
+      gap: 25px;
+    }
+
+    /* Fjern zoom out animation */
+    .zoom_out {
+      animation-name: zoom_in_kf;
+      animation-duration: none;
+    }
+
+    @keyframes zoom_in_kf {
+      from {
+        scale: none;
+      }
+    }
+
+    .fade_in {
+      animation-name: fade_in_kf;
+      animation-duration: 2s;
+    }
+
+    @keyframes fade_in_kf {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+</style>
