@@ -11,10 +11,9 @@ import "../styles/style.css";
   <nav>
     <ul class="menu">
       <li><a href="/">Home</a></li>
-      <li><a href="/">Index</a></li>
-      <li><a href="/iv2">Index2</a></li>
-      <li><a href="/former_exhibitions">Former Exhibitions</a></li>
-      <li><a href="/contact">Get in touch</a></li>
+      <li><a href="/i2">Index2</a></li>
+      <li><a href="/i3">Index3</a></li>
+      <li><a href="/i4">Index4</a></li>
     </ul>
     <div class="burger">
       <div class="bar"></div>
@@ -77,7 +76,7 @@ import "../styles/style.css";
   /* Mobil version */
   @media screen and (max-width: 900px) {
     .header {
-      padding: 25px 0;
+      padding: 25px 20px;
     }
     .menu {
       display: none;
@@ -90,6 +89,7 @@ import "../styles/style.css";
     }
     .burger {
       display: block;
+      margin-right: 10px;
     }
     /* Tilføjer klassen .active til burgermenuen, så vi kan lave en aktiv burgermenu i javascript */
     .burger.active .bar:nth-child(1) {
@@ -111,8 +111,8 @@ import "../styles/style.css";
       background-color: var(--hvidColor);
       position: absolute;
       top: 0;
-      left: -30px;
-      width: 390px;
+      left: 0;
+      width: 100vw;
       height: 100vh;
       padding: 100px 0 0 20px;
     }
