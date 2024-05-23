@@ -48,7 +48,10 @@ console.log(data);
       </div>
       <p class=".p_small">{data.description}</p>
       <div class="material_size">
-        <p class=".p_small">{data.material}</p>
+        <div class="material">
+          <p>Material:</p>
+          <p class=".p_small">{data.material}</p>
+        </div>
         <p class=".p_small grey">{data.size}</p>
       </div>
       <div class="button">
@@ -111,7 +114,15 @@ console.log(data);
   .material_size {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+  }
+  .material {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+  }
+  .material p:first-child {
+    font-weight: 600;
   }
   .button {
     margin: 20px 0 40px 0;

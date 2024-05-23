@@ -16,9 +16,9 @@ const { place, location, information, imgPath, buttonlink, position } =
         <h4>{location}</h4>
         <p>{information}</p>
 
-        <!-- Knap lavet med vores component, også der sat en destination som er linket (bruges på vores side) -->
-        <div>
-          <Button destination={buttonlink}> Read More</Button>
+        <!-- Knap, hvor prop buttonlink er sat ind, så man kan udfylde linket til knappen inde i former_exhibitions -->
+        <div class="button">
+          <a href={buttonlink} target="_blank">Read more</a>
         </div>
       </div>
 
@@ -32,54 +32,66 @@ const { place, location, information, imgPath, buttonlink, position } =
 
 <style>
   /* Desktop */
-  @media screen and (min-width: 600px) {
-    /* Laver flex box til teksen og fortæller om teksen skal være til venstre eller højre  */
-    .text_left {
-      display: flex;
-      flex-direction: column;
-      margin: 4%;
-      gap: 28px;
-    }
-    .text_right {
-      display: flex;
-      flex-direction: column;
-      margin: 4%;
-      gap: 28px;
-      order: 2;
-    }
-    /* laver flex row, laver rækken, som vores (tekst og  billede er på) */
-    .flex_row {
-      margin-top: 2%;
-      margin-bottom: 2%;
-      justify-content: space-between;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
 
-    }
+  /* Laver flex box til teksen og fortæller om teksen skal være til venstre eller højre  */
+  .text_left {
+    display: flex;
+    flex-direction: column;
+    margin: 4%;
+    gap: 10px;
+  }
+  .text_right {
+    display: flex;
+    flex-direction: column;
+    margin: 4%;
+    gap: 10px;
+    order: 2;
+  }
+  /* laver flex row, laver rækken, som vores (tekst og  billede er på) */
+  .flex_row {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
-    /* Giver billedet de rigtige dimensioner */
-    /* Laver container til billedet, så det kan få de rigtige mål. */
-    .img_container {
-      height: auto;
-       margin-left: 50px;
-      margin-right: 55px;
-      width: 600px;
-      overflow: hidden;
-      margin-bottom: 5%;
-      margin-top: 5%;
-    }
-    .img_container img {
-      width: 100%;
-    }
+  .button a {
+    padding: 18px 50px;
+    border: 1px solid var(--sort100Color);
+    background-color: var(--hvidColor);
+    cursor: pointer;
+  }
+  .button a:hover {
+    box-shadow: 5px 5px 4px #ac2a224d;
+    color: var(--rød100Color);
+  }
+  .button {
+    margin-top: 30px;
+  }
 
-    /* Laver vores border */
-    .border {
-      border-top: solid 1px black;
-      margin-left: -55px;
-      margin-right: -55px;
-      margin-top: 2%;
-    }
+  /* Giver billedet de rigtige dimensioner */
+  /* Laver container til billedet, så det kan få de rigtige mål. */
+  .img_container {
+    height: auto;
+    margin-left: 50px;
+    margin-right: 55px;
+    width: 600px;
+    overflow: hidden;
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+  .img_container img {
+    width: 100%;
+  }
+
+  /* Laver vores border */
+  .border {
+    border-top: solid 1px black;
+    margin-left: -55px;
+    margin-right: -55px;
+    margin-top: 2%;
   }
 
   /* Mobile */
