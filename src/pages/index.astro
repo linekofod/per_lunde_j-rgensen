@@ -8,7 +8,10 @@ import Button from "../components/Button.astro";
   <article>
     <figure class="background_img zoom_out"></figure>
     <div class="navn_knap fade_in">
-      <h1 class="titel">Per Lunde Jørgensen</h1>
+      <div class="overskrift">
+        <h1>Per Lunde</h1>
+        <h1>Jørgensen</h1>
+      </div>
       <div>
         <Button destination="/artworks">See artworks</Button>
       </div>
@@ -43,7 +46,11 @@ import Button from "../components/Button.astro";
   h1 {
     line-height: 1; /* Juster linjehøjde */
   }
-
+  .overskrift {
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+  }
   /* Zoom out animation på baggrundsbilledet */
   .zoom_out {
     animation-name: zoom_in_kf;
@@ -88,6 +95,14 @@ import Button from "../components/Button.astro";
     .navn_knap {
       margin: 0 0 40px 0px;
       gap: 25px;
+    }
+    .overskrift {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .overskrift h1:first-child {
+      padding-left: 3px;
     }
 
     /* Fjern zoom out animation */
