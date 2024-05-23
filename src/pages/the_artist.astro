@@ -3,10 +3,10 @@ import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="the_artist">
+<MainLayout title="The Artist">
   <h1>The Artist</h1>
-  <div class="about_Per">
-    <div class="textbox_about">
+  <div class="artist_Per">
+    <div class="textbox_artist">
       <h2>Per Lunde Jørgensen</h2>
       <div class="text_flex">
         <p>
@@ -31,15 +31,15 @@ import MainLayout from "../layouts/MainLayout.astro";
         </p>
       </div>
     </div>
-    <figure id="about_1">
-      <img src="/imgs/about_1.webp" alt="" />
+    <figure id="artist_1">
+      <img src="/imgs/artist_1.webp" alt="" />
     </figure>
   </div>
-  <div class="about_ebaychair">
-    <figure id="about_2">
-      <img src="/imgs/about_2.webp" alt="" />
+  <div class="artist_ebaychair">
+    <figure id="artist_2">
+      <img src="/imgs/artist_2.webp" alt="" />
     </figure>
-    <div class="textbox_about">
+    <div class="textbox_artist">
       <h2>Ebay Office Chairs Within 20 km Of Copenhagen</h2>
       <div class="text_flex">
         <p>
@@ -67,14 +67,14 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <style>
   /* Container med information om Per Lunde Jørgensen*/
-  .about_Per {
+  .artist_Per {
     display: grid; /* Sæt display til grid */
     grid-template-columns: 1fr 1fr; /* To kolonner med lige bredde */
     margin-bottom: 20px; /* Bundmargin */
   }
 
   /* Container med informationer om Ebay Chairs */
-  .about_ebaychair {
+  .artist_ebaychair {
     display: grid; /* Sæt display til grid */
     grid-template-columns: 1fr 1fr; /* To kolonner med lige bredde */
   }
@@ -89,7 +89,7 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   /* Styling af tekst-sektioner */
-  .textbox_about {
+  .textbox_artist {
     display: flex; /* Sæt display til flex */
     flex-direction: column; /* Arranger elementer i en kolonne */
     gap: 20px; /* Afstand mellem elementer */
@@ -105,53 +105,28 @@ import MainLayout from "../layouts/MainLayout.astro";
     margin-bottom: 25px; /* Juster bundmargin */
   }
 
-  /* Styling for container 'about_1' */
-  #about_1 {
-  }
-
-  /* Styling for billeder med ID 'about_1' */
-  #about_1 img {
-    display: block; /* Gør billedet til et blokelement */
-    width: 100%; /* Sæt bredde til 100% */
-  }
-
-  /* Styling for container 'about_2' */
-  #about_2 {
-  }
-
-  /* Responsiv skærme med en maksimal bredde på 800px */
+  /* Mobil version */
   @media screen and (max-width: 800px) {
-    /* Juster grid-layout for 'about_Per' container */
-    .about_Per {
+    .artist_Per {
       display: grid; /* Sæt display til grid */
       grid-template-columns: 1fr; /* Enkeltkolonne layout */
     }
-
-    /* Juster grid-layout for 'about_ebaychair' container */
-    .about_ebaychair {
+    .artist_ebaychair {
       display: grid; /* Sæt display til grid */
       grid-template-columns: 1fr; /* Enkeltkolonne layout */
     }
-
-    /* Juster margin for H1 overskrifter */
     h1 {
       margin-bottom: 30px; /* Bundmargin */
     }
-
-    /* Juster margin for H2 overskrifter */
     h2 {
       margin-top: -15px; /* Juster topmargin */
     }
-
-    /* Juster flex-layout for 'textbox_about' container */
-    .textbox_about {
+    .textbox_artist {
       display: flex; /* Sæt display til flex */
       flex-direction: column; /* Arranger elementer i en kolonne */
       gap: 20px; /* Afstand mellem elementer */
       order: 1; /* Specificer rækkefølge */
     }
-
-    /* Juster flex-layout for 'text_flex' container */
     .text_flex {
       display: flex; /* Sæt display til flex */
       flex-direction: column; /* Arranger elementer i en kolonne */
@@ -159,20 +134,12 @@ import MainLayout from "../layouts/MainLayout.astro";
       order: 1; /* Specificer rækkefølge */
     }
 
-    /* Styling for container 'about_1' */
-    #about_1 {
-      width: 100vw; /* Sæt bredde til 100% af viewport bredde */
-      display: block; /* Gør det til et blokelement */
+    #artist_1 {
       order: 2; /* Specificer rækkefølge */
-      margin: 0 0 0 -49px; /* Juster marginer */
+      margin-bottom: 30px;
     }
-
-    /* Styling for container 'about_2' */
-    #about_2 {
-      width: 100vw; /* Sæt bredde til 100% af viewport bredde */
-      display: block; /* Gør det til et blokelement */
+    #artist_2 {
       order: 2; /* Specificer rækkefølge */
-      margin: 0 0 0 -30.5px; /* Juster marginer */
     }
   }
 </style>

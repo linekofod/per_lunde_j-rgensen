@@ -14,7 +14,7 @@ import "../styles/style.css";
       <li><a href="/artworks">Artworks</a></li>
       <li><a href="/the_artist">The artist</a></li>
       <li><a href="/former_exhibitions">Former Exhibitions</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="/about">About</a></li>
     </ul>
     <div class="burger">
       <div class="bar"></div>
@@ -54,7 +54,7 @@ import "../styles/style.css";
   }
 
   /* Klassen active og hover funktion på menu linksene der får den røde farve */
-  .active,
+  .nav_active,
   .menu a:hover {
     padding: 20px 20px;
     color: var(--rød100Color);
@@ -134,12 +134,12 @@ import "../styles/style.css";
 
   // RØD FARVE PÅ AKTIVE NAVIGATIONSLINKS
   links.forEach((link) => {
-    link.classList.remove("active");
+    link.classList.remove("nav_active");
 
     // Tjekker om linkets href-attribut matcher det aktuelle vindues window.location.href.
-    // Hvis de matcher, tilføjes klassen "active" til linket, som har den røde farve.
+    // Hvis de matcher, tilføjes klassen "nav_active" til linket, som har den røde farve.
     if (link.href === window.location.href) {
-      link.classList.add("active");
+      link.classList.add("nav_active");
     }
   });
 
