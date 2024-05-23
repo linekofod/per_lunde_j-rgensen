@@ -11,37 +11,46 @@ import Button from "../components/Button.astro";
     <!-- Venstre grid -->
     <div>
       <h1>About</h1>
-
+      
+<section class="left_info">
       <!-- adresse -->
+      <div class="adresse">
       <h3>Address</h3>
-      <h5>Bonamatic</h5>
+      <h5 class="h_bold">Bonamatic</h5>
       <p>Degnestavnen 17, st.tv.</p>
       <p>2400 København NV</p>
+    </div>
 
+    <!-- åbningstider -->
+    <div class="opening_hours">
       <h3>Opening hours</h3>
-
-      <!-- åbningstider -->
       <div class="grid_1-1">
         <div class="fælles_åbningstider">
-          <div class="åbningstider"><h5>Monday:</h5><p>Closed</p></div>
-          <div class="åbningstider"><h5>Tuesday:</h5><p>Closed</p></div>
-          <div class="åbningstider"><h5>Wednesday:</h5><p>Closed</p></div>
-          <div class="åbningstider"><h5>Thursday:</h5><p>15:30-17:00</p></div>
-          <div class="åbningstider"><h5>Friday:</h5><p>15:30-17:00</p></div>
-          <div class="åbningstider"><h5>Saturday:</h5><p>12:00-15:00</p></div>
-          <div class="åbningstider"><h5>Sunday:</h5><p>Closed</p></div>
+          <div class="åbningstider"><h5 class="h_bold">Monday:</h5><p>Closed</p></div>
+          <div class="åbningstider"><h5 class="h_bold">Tuesday:</h5><p>Closed</p></div>
+          <div class="åbningstider"><h5 class="h_bold">Wednesday:</h5><p>Closed</p></div>
+          <div class="åbningstider"><h5 class="h_bold">Thursday:</h5><p>15:30-17:00</p></div>
+          <div class="åbningstider"><h5 class="h_bold">Friday:</h5><p>15:30-17:00</p></div>
+          <div class="åbningstider"><h5 class="h_bold">Saturday:</h5><p>12:00-15:00</p></div>
+          <div class="åbningstider"><h5 class="h_bold">Sunday:</h5><p>Closed</p></div>
         </div>
         <!-- illustration -->
         <img src="/imgs/illustration1.svg" alt="" />
       </div>
+    </div>
 
       <!-- kontakt -->
+      <div class="kontakt">
       <h3>Per Lunde Jørgensen</h3>
-      <h5>Phone</h5>
-      <p>+45 36 16 77 10</p>
-      <h5>Email</h5>
-      <p>plj@nonsite.dk</p>
+      <div class="phone">
+      <h5 class="h_bold">Phone:</h5>
+      <p>+45 36 16 77 10</p></div>
+      <div class="email">
+      <h5 class="h_bold">Email:</h5>
+      <p>plj@nonsite.dk</p></div>
     </div>
+  </div>
+</section>
 
     <!-- Højre grid (form-container) -->
 
@@ -70,7 +79,6 @@ import Button from "../components/Button.astro";
     .grid_1-1 {
       display: grid;
       grid-template-columns: 250px 200px;
-      margin-top: 20px;
     }
     .grid_contact {
       display: grid;
@@ -78,18 +86,24 @@ import Button from "../components/Button.astro";
       margin: 20px;
       position: relative;
     }
+    .left_info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
     /* form */
 
     .form-container {
       grid-column: 2;
+      margin-top: 20px;
     }
 
     input {
       width: 80%;
       padding: 10px;
-      margin-bottom: 25px;
-      margin-top: 10px;
+      margin-bottom: 28px;
+      margin-top: 8px;
       border: 1px solid var(--sort100Color);
     }
 
@@ -97,15 +111,21 @@ import Button from "../components/Button.astro";
     input[type=text]:focus {
     box-shadow: 1px 1px 4px var(--sort60Color) inset;
     outline: none;
-}
+    }
+    input::placeholder {
+    font-family: Helvetica;
+    color: var(--sort60Color);
+    }
 
     form label {
-      font-family: Inter-Regular;
+      font-family: 'Inter-Regular';
+      font-size: 20px;
+      color: var(--sort100Color);
     }
 
     #enquiry {
       width: 80%;
-      padding-bottom: 120px;
+      padding-bottom: 100px;
       margin-bottom: 40px;
     }
 
@@ -115,7 +135,7 @@ import Button from "../components/Button.astro";
       display: flex;
       flex-direction: row;
       align-items: baseline;
-      gap: 10px;
+      gap: 8px;
     }
 
     .fælles_åbningstider {
@@ -125,9 +145,17 @@ import Button from "../components/Button.astro";
     }
 
     h3 {
-      margin-top: 15px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     } 
+
+    /* Pers oplysninger */
+
+    .phone, .email {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 8px;
+    }
 
     /* linje */
 
@@ -155,15 +183,16 @@ import Button from "../components/Button.astro";
       /* grid */
 
       .grid_1-1 {
-        display: block;
+        grid-template-columns: 200px 1fr;
+        align-items: center;
       }
       .grid_contact {
         display: block;
         margin: 0;
       }
       img {
-        margin-top: 15%;
-        width: 40%;
+        width: 90%;
+        margin-top: 0;
       }
 
       /* Form mobilversion */
@@ -175,8 +204,8 @@ import Button from "../components/Button.astro";
 
       input {
         width: 80%;
-        padding: 10px;
-        margin-bottom: 25px;
+        padding: 5px;
+        margin-bottom: 15px;
         margin-top:30px
         border: 1px solid #000000;
       }
