@@ -1,0 +1,178 @@
+---
+import "../styles/style.css";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="the_artist">
+  <h1>The Artist</h1>
+  <div class="about_Per">
+    <div class="textbox_about">
+      <h2>Per Lunde Jørgensen</h2>
+      <div class="text_flex">
+        <p>
+          Per Lunde Jørgensen was born in Aarhus, Denmark (1964) and he lives
+          and work in Copenhagen. He holds an MFA from the Royal Danish Academy
+          of Fine Arts, and has had several solo shows at Galleri Søren Houmann
+          and at The Danish Cultural Ministery´s Kunsthal O-Overgaden. He has
+          participated in a wide range of exhibitions including Stadtgalerie
+          Kiel, Germany, SMK The Danish National Gallery, and KØS, Denmark, and
+          has exhibited at several art museums in Scandinavia. His works are
+          collected by The Danish Art Counsel, The Berkowitz Art Foundation, and
+          numerous other private collections. In 2024 his works will be part of
+          Personal Structures at Palazzo Mora in Venice.
+        </p>
+        <p>
+          He has participated in a wide range of exhibitions including
+          Stadtgalerie Kiel, Germany, SMK The Danish National Gallery, and KØS,
+          Denmark, and has exhibited at several art museums in Scandinavia. His
+          works are collected by The Danish Art Counsel, The Berkowitz Art
+          Foundation, and numerous other private collections. In 2024 his works
+          will be part of Personal Structures at Palazzo Mora in Venice.
+        </p>
+      </div>
+    </div>
+    <figure id="about_1">
+      <img src="/imgs/about_1.webp" alt="" />
+    </figure>
+  </div>
+  <div class="about_ebaychair">
+    <figure id="about_2">
+      <img src="/imgs/about_2.webp" alt="" />
+    </figure>
+    <div class="textbox_about">
+      <h2>Ebay Office Chairs Within 20 km Of Copenhagen</h2>
+      <div class="text_flex">
+        <p>
+          Per Lunde Jørgensen's popular works are based on office chairs found
+          and purchased on the Danish sales platform Den Blå Avis within a
+          limited search radius of 20 km. The covering of the office chair is
+          removed and sewn onto a textile canvas for pictorial objects. They
+          exist in an unstable state between the recognizable and the generally
+          abstract.
+        </p>
+
+        <p>
+          In a previous exhibition at the Bonamatic gallery in 2018, these works
+          were the focus. The exhibition's title, 'Reassembling the Social,' is
+          taken from Bruno Latour's book of the same name. It points to how the
+          works, in various ways, contemplate our arrangement of the social by
+          actively intervening in it with new objects. They raise questions
+          about the distribution of roles between the subjective and the
+          objective and how what appears as static is sometimes mutable.
+        </p>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  /* Container med information om Per Lunde Jørgensen*/
+  .about_Per {
+    display: grid; /* Sæt display til grid */
+    grid-template-columns: 1fr 1fr; /* To kolonner med lige bredde */
+    margin-bottom: 20px; /* Bundmargin */
+  }
+
+  /* Container med informationer om Ebay Chairs */
+  .about_ebaychair {
+    display: grid; /* Sæt display til grid */
+    grid-template-columns: 1fr 1fr; /* To kolonner med lige bredde */
+  }
+
+  h1 {
+    margin-bottom: 30px; /* Bundmargin */
+  }
+
+  h2 {
+    margin-bottom: 8px; /* Bundmargin */
+    line-height: 1.2; /* Juster linjehøjde */
+  }
+
+  /* Styling af tekst-sektioner */
+  .textbox_about {
+    display: flex; /* Sæt display til flex */
+    flex-direction: column; /* Arranger elementer i en kolonne */
+    gap: 20px; /* Afstand mellem elementer */
+    justify-content: center;
+  }
+
+  /* Yderligere styling for selve tekstindholdet */
+  .text_flex {
+    display: flex; /* Sæt display til flex */
+    flex-direction: column; /* Arranger elementer i en kolonne */
+    gap: 20px; /* Afstand mellem elementer */
+    margin-top: -5px; /* Juster topmargin */
+    margin-bottom: 25px; /* Juster bundmargin */
+  }
+
+  /* Styling for container 'about_1' */
+  #about_1 {
+  }
+
+  /* Styling for billeder med ID 'about_1' */
+  #about_1 img {
+    display: block; /* Gør billedet til et blokelement */
+    width: 100%; /* Sæt bredde til 100% */
+  }
+
+  /* Styling for container 'about_2' */
+  #about_2 {
+  }
+
+  /* Responsiv skærme med en maksimal bredde på 800px */
+  @media screen and (max-width: 800px) {
+    /* Juster grid-layout for 'about_Per' container */
+    .about_Per {
+      display: grid; /* Sæt display til grid */
+      grid-template-columns: 1fr; /* Enkeltkolonne layout */
+    }
+
+    /* Juster grid-layout for 'about_ebaychair' container */
+    .about_ebaychair {
+      display: grid; /* Sæt display til grid */
+      grid-template-columns: 1fr; /* Enkeltkolonne layout */
+    }
+
+    /* Juster margin for H1 overskrifter */
+    h1 {
+      margin-bottom: 30px; /* Bundmargin */
+    }
+
+    /* Juster margin for H2 overskrifter */
+    h2 {
+      margin-top: -15px; /* Juster topmargin */
+    }
+
+    /* Juster flex-layout for 'textbox_about' container */
+    .textbox_about {
+      display: flex; /* Sæt display til flex */
+      flex-direction: column; /* Arranger elementer i en kolonne */
+      gap: 20px; /* Afstand mellem elementer */
+      order: 1; /* Specificer rækkefølge */
+    }
+
+    /* Juster flex-layout for 'text_flex' container */
+    .text_flex {
+      display: flex; /* Sæt display til flex */
+      flex-direction: column; /* Arranger elementer i en kolonne */
+      gap: 20px; /* Afstand mellem elementer */
+      order: 1; /* Specificer rækkefølge */
+    }
+
+    /* Styling for container 'about_1' */
+    #about_1 {
+      width: 100vw; /* Sæt bredde til 100% af viewport bredde */
+      display: block; /* Gør det til et blokelement */
+      order: 2; /* Specificer rækkefølge */
+      margin: 0 0 0 -49px; /* Juster marginer */
+    }
+
+    /* Styling for container 'about_2' */
+    #about_2 {
+      width: 100vw; /* Sæt bredde til 100% af viewport bredde */
+      display: block; /* Gør det til et blokelement */
+      order: 2; /* Specificer rækkefølge */
+      margin: 0 0 0 -30.5px; /* Juster marginer */
+    }
+  }
+</style>
