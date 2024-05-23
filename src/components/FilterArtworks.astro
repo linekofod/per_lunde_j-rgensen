@@ -33,7 +33,6 @@ console.log(data);
 
 <section class="data ebay">
   <h3>Ebay Office Chairs</h3>
-  <hr />
   <div class="data_grid">
     {
       data
@@ -46,7 +45,6 @@ console.log(data);
 </section>
 <section class="data office_chairs">
   <h3>Office Chairs Arranged by Value</h3>
-  <hr />
   <div class="data_grid">
     {
       data
@@ -61,7 +59,6 @@ console.log(data);
 </section>
 <section class="data two_seater">
   <h3>Two Seater Copenhagen</h3>
-  <hr />
   <div class="data_grid">
     {
       data
@@ -74,7 +71,6 @@ console.log(data);
 </section>
 <section class="data airbnb">
   <h3>Airbnb Frottage</h3>
-  <hr />
   <div class="data_grid">
     {
       data
@@ -87,7 +83,6 @@ console.log(data);
 </section>
 <section class="data reviews">
   <h3>Reviews</h3>
-  <hr />
   <div class="data_grid">
     {
       data
@@ -140,11 +135,7 @@ console.log(data);
     top: 26px;
   }
   h3 {
-    margin-bottom: 5px;
-    margin-top: -10px;
-  }
-  hr {
-    margin-bottom: 40px;
+    margin: 0px 0 20px 0;
   }
   .data {
     display: none;
@@ -207,6 +198,9 @@ console.log(data);
     .up {
       top: 20px;
     }
+    h3 {
+      margin: 0px 0 10px 0;
+    }
   }
 </style>
 
@@ -244,29 +238,89 @@ console.log(data);
   ebay_btn.addEventListener("click", () => {
     ebay.classList.toggle("show_data");
     ebay_btn.classList.toggle("red_color");
+    filter.classList.toggle("active");
+    arrow.classList.toggle("up");
+
+    // Fjerner den røde farve og den sektionerne fra de andre titler
+    office_chairs_btn.classList.remove("red_color");
+    office_chairs.classList.remove("show_data");
+    two_seater_btn.classList.remove("red_color");
+    two_seater.classList.remove("show_data");
+    airbnb_btn.classList.remove("red_color");
+    airbnb.classList.remove("show_data");
+    reviews_btn.classList.remove("red_color");
+    reviews.classList.remove("show_data");
   });
 
   // Office Chairs Arranged by Value
   office_chairs_btn.addEventListener("click", () => {
     office_chairs.classList.toggle("show_data");
     office_chairs_btn.classList.toggle("red_color");
+    filter.classList.toggle("active");
+    arrow.classList.toggle("up");
+
+    // Fjerner den røde farve og den sektionerne fra de andre titler
+    ebay_btn.classList.remove("red_color");
+    ebay.classList.remove("show_data");
+    two_seater_btn.classList.remove("red_color");
+    two_seater.classList.remove("show_data");
+    airbnb_btn.classList.remove("red_color");
+    airbnb.classList.remove("show_data");
+    reviews_btn.classList.remove("red_color");
+    reviews.classList.remove("show_data");
   });
 
   // Two Seater Copenhagen
   two_seater_btn.addEventListener("click", () => {
     two_seater.classList.toggle("show_data");
     two_seater_btn.classList.toggle("red_color");
+    filter.classList.toggle("active");
+    arrow.classList.toggle("up");
+
+    // Fjerner den røde farve og den sektionerne fra de andre titler
+    ebay_btn.classList.remove("red_color");
+    ebay.classList.remove("show_data");
+    office_chairs_btn.classList.remove("red_color");
+    office_chairs.classList.remove("show_data");
+    airbnb_btn.classList.remove("red_color");
+    airbnb.classList.remove("show_data");
+    reviews_btn.classList.remove("red_color");
+    reviews.classList.remove("show_data");
   });
 
   // Airbnb
   airbnb_btn.addEventListener("click", () => {
     airbnb.classList.toggle("show_data");
     airbnb_btn.classList.toggle("red_color");
+    filter.classList.toggle("active");
+    arrow.classList.toggle("up");
+
+    // Fjerner den røde farve og den sektionerne fra de andre titler
+    ebay_btn.classList.remove("red_color");
+    ebay.classList.remove("show_data");
+    office_chairs_btn.classList.remove("red_color");
+    office_chairs.classList.remove("show_data");
+    two_seater_btn.classList.remove("red_color");
+    two_seater.classList.remove("show_data");
+    reviews_btn.classList.remove("red_color");
+    reviews.classList.remove("show_data");
   });
 
   // Reviews
   reviews_btn.addEventListener("click", () => {
     reviews.classList.toggle("show_data");
     reviews_btn.classList.toggle("red_color");
+    filter.classList.toggle("active");
+    arrow.classList.toggle("up");
+
+    // Fjerner den røde farve og den sektionerne fra de andre titler
+    ebay_btn.classList.remove("red_color");
+    ebay.classList.remove("show_data");
+    office_chairs_btn.classList.remove("red_color");
+    office_chairs.classList.remove("show_data");
+    two_seater_btn.classList.remove("red_color");
+    two_seater.classList.remove("show_data");
+    airbnb_btn.classList.remove("red_color");
+    airbnb.classList.remove("show_data");
   });
 </script>
