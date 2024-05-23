@@ -51,12 +51,12 @@ import "../styles/style.css";
   }
   .menu a {
     padding: 20px 20px;
-    /* border: 1px solid transparent; */
   }
+
+  /* Klassen active og hover funktion på menu linksene der får den røde farve */
   .active,
   .menu a:hover {
     padding: 20px 20px;
-    /* border: 1px solid var(--sort100Color); */
     color: var(--rød100Color);
   }
   .burger {
@@ -129,12 +129,21 @@ import "../styles/style.css";
   const burger = document.querySelector(".burger");
   const nav = document.querySelector("nav");
   const menu = document.querySelector(".menu");
+  // Definerer alle links i menuen
   const links = document.querySelectorAll(".menu li a");
 
-  links.addEventListener("click", () => {
-    links.classList.toggle("active");
+  // RØD FARVE PÅ AKTIVE NAVIGATIONSLINKS
+  links.forEach((link) => {
+    link.classList.remove("active");
+
+    // Tjekker om linkets href-attribut matcher det aktuelle vindues window.location.href.
+    // Hvis de matcher, tilføjes klassen "active" til linket, som har den røde farve.
+    if (link.href === window.location.href) {
+      link.classList.add("active");
+    }
   });
 
+  // BURGERMENU
   // Kalder funtion på click af burgermenuen.
   // Funktionen tilføjer klassen .active, når der klikkes på burgermenuen.
   burger.addEventListener("click", () => {
