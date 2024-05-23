@@ -1,6 +1,8 @@
 ---
 import "../styles/style.css";
 import CardArtworks from "../components/CardArtworks.astro";
+
+// Fetcher data
 const data = await fetch(
   "https://eposbelbueemuzonqiuu.supabase.co/rest/v1/artworks?order=id.asc",
   {
@@ -14,35 +16,60 @@ const data = await fetch(
 console.log(data);
 ---
 
-<!-- Filter -->
+<!-- FILTER -->
 <article class="filter">
   <div class="box">
     <h4>Filter</h4>
     <div class="arrow down"></div>
   </div>
+  <!-- FILTER OPTIONS -->
+  <!-- Alle titler får klassen "filter_btn", og får hver deres navn med data-filter -->
+  <!-- data-filter-attributten indeholder en værdi, der bruges til at identificere, hvilket filter der skal anvendes, når knappen klikkes. 
+      Værdien matcher klassen på den sektion af data, der skal vises.
+      For eksempel har den første knap data-filter="all", hvilket betyder, at når denne knap klikkes, skal alle kunstværker vises. -->
   <div class="filter_options">
-    <a id="ebay_btn" href="#">Ebay Office Chairs</a>
-    <a id="office_chairs_btn" href="#">Office Chairs Arranged by Value</a>
-    <a id="two_seater_btn" href="#">Two Seater Copenhagen</a>
-    <a id="airbnb_btn" href="#">Airbnb Frottage</a>
-    <a id="reviews_btn" href="#">Reviews</a>
+    <a class="filter_btn" data-filter="all" href="#">All Artworks</a>
+    <a class="filter_btn" data-filter="ebay" href="#">Ebay Office Chairs</a>
+    <a class="filter_btn" data-filter="office_chairs" href="#"
+      >Office Chairs Arranged by Value</a
+    >
+    <a class="filter_btn" data-filter="two_seater" href="#"
+      >Two Seater Copenhagen</a
+    >
+    <a class="filter_btn" data-filter="airbnb" href="#">Airbnb Frottage</a>
+    <a class="filter_btn" data-filter="reviews" href="#">Reviews</a>
   </div>
 </article>
 
-<!-- Data på de forskellige titler -->
+<!-- TITEL SEKTIONERNE -->
+<!-- Hver titel er i en sektion. 
+    I sektionerne bliver der hentet deres tilhørende data og med klassen "data_grid" siger vi i style, at dataen skal komme ud som grids-->
 
+<!-- All Artworks sektionen -->
+<section class="data all">
+  <h3>All Artworks</h3>
+  <div class="data_grid">
+    {data.map((artwork) => <CardArtworks data={artwork} />)}
+  </div>
+</section>
+
+<!-- Ebay Office Chairs sektionen -->
 <section class="data ebay">
   <h3>Ebay Office Chairs</h3>
   <div class="data_grid">
     {
       data
-        .filter((artwork) => artwork.title === "Ebay Office Chairs")
-        .map((artwork) => {
-          return <CardArtworks data={artwork} />;
-        })
+        .filter(
+          (artwork) => artwork.title === "Ebay Office Chairs"
+        ) /* filter: Denne metode bruges til at filtrere data arrayet, så kun de kunstværker med titlen "Ebay Office Chairs" inkluderes. */
+        .map((artwork) => (
+          <CardArtworks data={artwork} />
+        )) /* map: Denne metode bruges til at iterere over de filtrerede kunstværker og returnerer en CardArtworks komponent for hver. */
     }
   </div>
 </section>
+
+<!-- Office Chairs sektionen -->
 <section class="data office_chairs">
   <h3>Office Chairs Arranged by Value</h3>
   <div class="data_grid">
@@ -51,50 +78,49 @@ console.log(data);
         .filter(
           (artwork) => artwork.title === "Office Chairs Arranged by Value"
         )
-        .map((artwork) => {
-          return <CardArtworks data={artwork} />;
-        })
+        .map((artwork) => <CardArtworks data={artwork} />)
     }
   </div>
 </section>
+
+<!-- Two Seater sektionen -->
 <section class="data two_seater">
   <h3>Two Seater Copenhagen</h3>
   <div class="data_grid">
     {
       data
         .filter((artwork) => artwork.title === "Two Seater Copenhagen")
-        .map((artwork) => {
-          return <CardArtworks data={artwork} />;
-        })
+        .map((artwork) => <CardArtworks data={artwork} />)
     }
   </div>
 </section>
+
+<!-- Airbnb sektionen -->
 <section class="data airbnb">
   <h3>Airbnb Frottage</h3>
   <div class="data_grid">
     {
       data
         .filter((artwork) => artwork.title === "Airbnb Frottage")
-        .map((artwork) => {
-          return <CardArtworks data={artwork} />;
-        })
+        .map((artwork) => <CardArtworks data={artwork} />)
     }
   </div>
 </section>
+
+<!-- Reviews sektionen -->
 <section class="data reviews">
   <h3>Reviews</h3>
   <div class="data_grid">
     {
       data
         .filter((artwork) => artwork.title === "Reviews")
-        .map((artwork) => {
-          return <CardArtworks data={artwork} />;
-        })
+        .map((artwork) => <CardArtworks data={artwork} />)
     }
   </div>
 </section>
 
 <style>
+  /* FILTERBOKSEN */
   .filter {
     width: 100%;
     height: 60px;
@@ -116,6 +142,7 @@ console.log(data);
     top: 10px;
     left: 20px;
   }
+  /* Pilen på filterboksen */
   .arrow {
     border: solid var(--sort100Color);
     border-width: 0 1.5px 1.5px 0;
@@ -124,35 +151,19 @@ console.log(data);
     position: absolute;
     right: 20px;
   }
+  /* Pilen har klassen "down" pr. default, så pilen vender nedad */
   .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     top: 18px;
   }
+  /* Pilen får klassen "up", når der klikkes på filterboksen, så pilen vender opad */
   .up {
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
     top: 26px;
   }
-  h3 {
-    margin: 0px 0 20px 0;
-  }
-  .data {
-    display: none;
-  }
-  .data_grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(420px, 420px));
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 50px;
-  }
-  .show_data {
-    display: block !important;
-  }
-  .active {
-    visibility: visible !important;
-  }
+  /* Filter options er skjult pr. default */
   .filter_options {
     display: flex;
     visibility: hidden;
@@ -171,22 +182,50 @@ console.log(data);
   a {
     text-transform: none;
   }
+  a:hover {
+    color: var(--rød100Color);
+  }
+  /* Filter options bliver vist, når der klikkes på filterboksen */
+  .active {
+    visibility: visible !important;
+  }
+  /* Den røde farve, som bliver tilføjet til titel linksene, når der klikkes på dem */
   .red_color {
     color: var(--rød100Color);
+  }
+
+  /* TITEL SEKTIONERNE */
+  h3 {
+    margin: 0px 0 20px 0;
+  }
+  /* Dataen for titel sektionerne er skjult pr. default */
+  .data {
+    display: none;
+  }
+  /* Dataen for titel sektionerne bliver vist, når man klikker på en af titlerne */
+  .show_data {
+    display: block !important;
+  }
+  /* Dataen bliver vist som grids */
+  .data_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 420px));
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
   }
 
   /* Mobil version */
   @media screen and (max-width: 800px) {
     .filter {
       height: 50px;
-    }
-    .filter_options {
-      margin-top: 47px;
+      margin: 24px 0 34px 0;
     }
     .box {
       height: 50px;
     }
     .filter_options {
+      margin-top: 47px;
       padding: 3px 0 20px 21px;
     }
     .filter_options a {
@@ -199,128 +238,83 @@ console.log(data);
       top: 20px;
     }
     h3 {
-      margin: 0px 0 10px 0;
+      margin: 0px 0 20px 0;
+    }
+    .data_grid {
+      display: block;
     }
   }
 </style>
 
 <script>
-  // Definerer variabler
+  // Definerer variabler for filterboksen, filter knapperne og alle titel sektionerne
   const box = document.querySelector(".box");
   const filter = document.querySelector(".filter_options");
-  const options = document.querySelector(".filter_options a");
   const arrow = document.querySelector(".arrow");
+  const filterBtns = document.querySelectorAll(".filter_btn");
+  const sections = document.querySelectorAll(".data");
 
-  // Kalder funtion på click af filter box.
-  // Funktionen tilføjer klassen .active, når der klikkes på burgermenuen.
+  // FUNKTION TO ÅBNING AF FILTER PÅ KLIK
+  // Kalder funktion på klik af filter box (filterboksen åbner med klassen "active" og pilen vender opad med klassen "up")
   box.addEventListener("click", () => {
     filter.classList.toggle("active");
     arrow.classList.toggle("up");
   });
 
-  // Ebay Office Chairs
-  const ebay_btn = document.querySelector("#ebay_btn");
-  const ebay = document.querySelector(".ebay");
-  // Office Chairs Arranged by Value
-  const office_chairs_btn = document.querySelector("#office_chairs_btn");
-  const office_chairs = document.querySelector(".office_chairs");
-  // Two Seater Copenhagen
-  const two_seater_btn = document.querySelector("#two_seater_btn");
-  const two_seater = document.querySelector(".two_seater");
-  // Airbnb
-  const airbnb_btn = document.querySelector("#airbnb_btn");
-  const airbnb = document.querySelector(".airbnb");
-  // Reviews
-  const reviews_btn = document.querySelector("#reviews_btn");
-  const reviews = document.querySelector(".reviews");
+  // FUNKTION TIL HÅNDTERING AF TITEL SEKTIONERNE PÅ KLIK
+  // OVERORDNET FORKLARING:
+  // - Koden tilføjer en click eventListener til hver af filtreringsknapperne (filterBtns).
+  // - Når en knap klikkes, udfører koden følgende trin:
+  // 1. Tjekker om knappen allerede er aktiv (har den røde farveklasse).
+  // 2. Fjerner den røde farveklasse fra alle knapper og deaktiverer filtermenuen.
+  // 3. Ved klik, hvis knappen ikke er aktiv, tilføjer den den røde farveklasse, filtrerer kunstværkerne baseret på knappens filtertype og viser de relevante sektioner.
+  // 4. Ved klik, hvis knappen allerede er aktiv, fjerner den den røde farveklasse fra knappen og skjuler de tilhørende sektioner.
 
-  // Ebay Office Chairs
-  ebay_btn.addEventListener("click", () => {
-    ebay.classList.toggle("show_data");
-    ebay_btn.classList.toggle("red_color");
-    filter.classList.toggle("active");
-    arrow.classList.toggle("up");
+  // DYBERE FORKLARING: Filterboksen:
+  // 1. Itererer over alle filtreringsknapperne med forEach.
+  // 2. Tilføjer en click eventListener på hver knap.
+  // 3. Definerer en konstant, der siger, at hvis knappen er aktiv (isActive), så har knappen klassen "red_color" (denne konstant skal bruges nede i if-else statementet).
+  // 4. Itererer over alle filtreringsknapperne igen og fjerner klassen "red_color" fra hver knap (dette sikrer, at ingen knap har den røde farveklasse før den klikkede knap tilføjer den igen).
+  // 5. Fjerner klassen "active" fra filtermenuen, hvilket lukker menuen, når man har klikket på en titel.
+  // 6. Fjerner klassen "up" fra pilen, hvilket vender pilen nedad, når man har klikket på en titel.
 
-    // Fjerner den røde farve og den sektionerne fra de andre titler
-    office_chairs_btn.classList.remove("red_color");
-    office_chairs.classList.remove("show_data");
-    two_seater_btn.classList.remove("red_color");
-    two_seater.classList.remove("show_data");
-    airbnb_btn.classList.remove("red_color");
-    airbnb.classList.remove("show_data");
-    reviews_btn.classList.remove("red_color");
-    reviews.classList.remove("show_data");
-  });
+  /*1*/ filterBtns.forEach((btn) => {
+    /*2*/ btn.addEventListener("click", () => {
+      /*3*/ const isActive = btn.classList.contains("red_color");
 
-  // Office Chairs Arranged by Value
-  office_chairs_btn.addEventListener("click", () => {
-    office_chairs.classList.toggle("show_data");
-    office_chairs_btn.classList.toggle("red_color");
-    filter.classList.toggle("active");
-    arrow.classList.toggle("up");
+      /*4*/ filterBtns.forEach((btn) => btn.classList.remove("red_color"));
+      /*5*/ filter.classList.remove("active");
+      /*6*/ arrow.classList.remove("up");
 
-    // Fjerner den røde farve og den sektionerne fra de andre titler
-    ebay_btn.classList.remove("red_color");
-    ebay.classList.remove("show_data");
-    two_seater_btn.classList.remove("red_color");
-    two_seater.classList.remove("show_data");
-    airbnb_btn.classList.remove("red_color");
-    airbnb.classList.remove("show_data");
-    reviews_btn.classList.remove("red_color");
-    reviews.classList.remove("show_data");
-  });
+      // DYBERE FORKLARING: Titel sektionerne:
+      // 1. Når man klikker på titlerne: Kontrollerer om knappen allerede er aktiv (!isActive). Hvis den ikke er det, udføres handlingerne inden i if-blokken, ellers udføres handlingerne inden i else-blokken.
+      // 2. Hvis knappen ikke allerede er aktiv, tilføjes klassen "red_color" til den klikkede knap.
+      // 3. Henter værdien af data-filter attributten fra den klikkede knap. Denne værdi bestemmer, hvilken type kunstværk der skal vises (f.eks. all, ebay, office_chairs, osv.).
+      // 4. Itererer over alle sektionerne med klassen "data".
+      // 5. Kontrollerer, om filtertypen er 'all'. Hvis den er det, vil alle sektioner blive vist. Ellers vil kun de sektioner, der matcher filtertypen, blive vist.
+      // 6. Hvis filtertypen er 'all', tilføjes klassen "show_data" til alle sektionerne.
+      // 7. Hvis filtertypen ikke er 'all', vil denne linje tilføje eller fjerne klassen "show_data" (toggle) baseret på om sektionen indeholder (contains) klassen for den specifikke filtertype.
+      // 8. Når man klikker på titlerne igen, for at få sektionen væk: Hvis knappen allerede er aktiv, skjul de relevante sektioner med remove af klassen "show_data".
 
-  // Two Seater Copenhagen
-  two_seater_btn.addEventListener("click", () => {
-    two_seater.classList.toggle("show_data");
-    two_seater_btn.classList.toggle("red_color");
-    filter.classList.toggle("active");
-    arrow.classList.toggle("up");
-
-    // Fjerner den røde farve og den sektionerne fra de andre titler
-    ebay_btn.classList.remove("red_color");
-    ebay.classList.remove("show_data");
-    office_chairs_btn.classList.remove("red_color");
-    office_chairs.classList.remove("show_data");
-    airbnb_btn.classList.remove("red_color");
-    airbnb.classList.remove("show_data");
-    reviews_btn.classList.remove("red_color");
-    reviews.classList.remove("show_data");
-  });
-
-  // Airbnb
-  airbnb_btn.addEventListener("click", () => {
-    airbnb.classList.toggle("show_data");
-    airbnb_btn.classList.toggle("red_color");
-    filter.classList.toggle("active");
-    arrow.classList.toggle("up");
-
-    // Fjerner den røde farve og den sektionerne fra de andre titler
-    ebay_btn.classList.remove("red_color");
-    ebay.classList.remove("show_data");
-    office_chairs_btn.classList.remove("red_color");
-    office_chairs.classList.remove("show_data");
-    two_seater_btn.classList.remove("red_color");
-    two_seater.classList.remove("show_data");
-    reviews_btn.classList.remove("red_color");
-    reviews.classList.remove("show_data");
-  });
-
-  // Reviews
-  reviews_btn.addEventListener("click", () => {
-    reviews.classList.toggle("show_data");
-    reviews_btn.classList.toggle("red_color");
-    filter.classList.toggle("active");
-    arrow.classList.toggle("up");
-
-    // Fjerner den røde farve og den sektionerne fra de andre titler
-    ebay_btn.classList.remove("red_color");
-    ebay.classList.remove("show_data");
-    office_chairs_btn.classList.remove("red_color");
-    office_chairs.classList.remove("show_data");
-    two_seater_btn.classList.remove("red_color");
-    two_seater.classList.remove("show_data");
-    airbnb_btn.classList.remove("red_color");
-    airbnb.classList.remove("show_data");
+      /*1 if-blokken*/ if (!isActive) {
+        /*2*/ btn.classList.add("red_color");
+        /*3*/ const filterType = btn.dataset.filter;
+        /*4*/ sections.forEach((section) => {
+          /*5*/ if (filterType === "all") {
+            /*6*/ section.classList.add("show_data");
+          } else {
+            /*7*/ section.classList.toggle(
+              "show_data",
+              section.classList.contains(filterType)
+            );
+          }
+        });
+        /*8 else-blokken */
+      } else {
+        sections.forEach((section) => {
+          section.classList.remove("show_data");
+        });
+      }
+    });
   });
 </script>

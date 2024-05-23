@@ -5,36 +5,38 @@ import Button from "../components/Button.astro";
 ---
 
 <MainLayout title="Home">
-<article>
-<div class="navn_knap">
-    <div>
-<h1 class="fornavn">Per Lunde </h1>
-<h1 class="efternavn">Jørgensen</h1></div>
-<div>
-<Button destination="/artworks">See artworks</Button></div>
-</div>
-</article>
+  <article>
+    <div class="navn_knap">
+      <div>
+        <h1 class="fornavn">Per Lunde</h1>
+        <h1 class="efternavn">Jørgensen</h1>
+      </div>
+      <div>
+        <Button destination="/artworks">See artworks</Button>
+      </div>
+    </div>
+  </article>
 </MainLayout>
 
 <style>
-/* Desktop skærm*/
+  /* Desktop skærm*/
 
-/* Styling på <article> hvor baggrundsbilldet er */
-    article {
+  /* Styling på <article> hvor baggrundsbilldet er */
+  article {
     position: relative; /* Position relativ */
-    background-image: url('/imgs/index.webp'); /* Baggrundsbillede */
+    background-image: url("/imgs/index.webp"); /* Baggrundsbillede */
     background-size: cover; /* Dækker hele elementet */
     background-repeat: no-repeat; /* Ingen gentagelse af baggrundsbillede */
     background-position: center; /* Centreret baggrundsbillede */
     height: 100vh; /* 100% af viewportens højde */
     width: 100vw; /* 100% af viewportens bredde */
-    margin-bottom:-60px; /* Negativ bundmargin */
+    margin-bottom: -60px; /* Negativ bundmargin */
     margin-top: -70px; /* Negativ topmargin */
     margin-left: -56px; /* Negativ venstremargin */
-}
+  }
 
-/* Styling af container hvor H1 og knap indgår */
-.navn_knap{
+  /* Styling af container hvor H1 og knap indgår */
+  .navn_knap {
     margin-bottom: 110px; /* Bundmargin */
     position: absolute; /* Position absolut */
     bottom: 0; /* Placeret nederst */
@@ -43,70 +45,67 @@ import Button from "../components/Button.astro";
     gap: 35px; /* Afstand mellem elementer */
     width: fit-content; /* Tilpasser bredden til indholdet */
     margin-left: 56px; /* Venstremargin */
-}
+  }
 
-h1{
+  h1 {
     line-height: 1; /* Juster linjehøjde */
-}
+  }
 
-/* Styling af "Per Lunde" H1 */
-.fornavn{
+  /* Styling af "Per Lunde" H1 */
+  .fornavn {
     margin-left: 6px; /* Venstremargin */
     top: 525px; /* Afstand fra toppen */
     bottom: 30px; /* Afstand fra bunden */
-}
+  }
 
-/* Styling af "Jørgensen" H1  */
-.efternavn{
+  /* Styling af "Jørgensen" H1  */
+  .efternavn {
     margin-left: -16px; /* Venstremargin */
     top: 585px; /* Afstand fra toppen */
-}
+  }
 
-/* Mobilversion */
+  /* Mobilversion */
 
-@media screen and (max-width: 800px) {
-    
+  @media screen and (max-width: 800px) {
     /* Styling på <article> hvor baggrundsbilldet er i mobilversion */
     article {
-        position: relative; /* Position relativ */
-        background-image: url('/imgs/index.webp'); /* Baggrundsbillede */
-        background-size: cover; /* Dækker hele elementet */
-        background-repeat: no-repeat; /* Ingen gentagelse af baggrundsbillede */
-        background-position: center; /* Centreret baggrundsbillede */
-        height: 1131px; /* Fastsat højde */
-        margin: -270px -30px -60px -30px; /* Marginjustering */
+      position: relative; /* Position relativ */
+      background-image: url("/imgs/index.webp"); /* Baggrundsbillede */
+      background-size: cover; /* Dækker hele elementet */
+      background-repeat: no-repeat; /* Ingen gentagelse af baggrundsbillede */
+      background-position: center; /* Centreret baggrundsbillede */
+      height: 1131px; /* Fastsat højde */
+      margin: -270px -30px -60px -30px; /* Marginjustering */
     }
 
     /* Styling af container hvor H1 og knap indgår i mobilversionen */
-    .navn_knap{
-        margin-left: 25px; /* Venstremargin */
-        margin-bottom: 185px; /* Bundmargin */
-        position: absolute; /* Position absolut */
-        bottom: 0; /* Placeret nederst */
-        display: flex; /* Vis som flekselement */
-        flex-direction: column; /* Arranger elementer i en kolonne */
-        gap: 25px; /* Afstand mellem elementer */
-        width: fit-content; /* Tilpasser bredden til indholdet */
+    .navn_knap {
+      margin-left: 25px; /* Venstremargin */
+      margin-bottom: 185px; /* Bundmargin */
+      position: absolute; /* Position absolut */
+      bottom: 0; /* Placeret nederst */
+      display: flex; /* Vis som flekselement */
+      flex-direction: column; /* Arranger elementer i en kolonne */
+      gap: 25px; /* Afstand mellem elementer */
+      width: fit-content; /* Tilpasser bredden til indholdet */
     }
 
     /* H1 i mobilversionen */
-    h1{
-        line-height: 1; /* Juster linjehøjde */
+    h1 {
+      line-height: 1; /* Juster linjehøjde */
     }
 
-   /* Styling af "Per Lunde" H1 i mobilversionen */
-    .fornavn{
-        top: 525px; /* Afstand fra toppen */
-        bottom: 30px; /* Afstand fra bunden */
-        margin-left: 1px; /* Venstremargin */
+    /* Styling af "Per Lunde" H1 i mobilversionen */
+    .fornavn {
+      top: 525px; /* Afstand fra toppen */
+      bottom: 30px; /* Afstand fra bunden */
+      margin-left: 1px; /* Venstremargin */
     }
 
     /* Styling af "Jørgensen" H1 i mobilversionen */
-    .efternavn{
-        margin-left: -11px; /* Venstremargin */
-        top: 585px; /* Afstand fra toppen */
+    .efternavn {
+      margin-left: -11px; /* Venstremargin */
+      top: 585px; /* Afstand fra toppen */
     }
-
-}
-
+  }
 </style>
