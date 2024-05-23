@@ -5,33 +5,40 @@ const { place, location, information, imgPath, buttonlink, position } =
   Astro.props;
 ---
 
+<hr />
 <article class="container">
-  <!-- Class "border" giver stregen rundt om kassen -->
-  <section class="border">
-    <!-- Class "flex_row laver rækken, med tekst i en side og billede i den anden." -->
-    <div class="flex_row">
-      <!-- Tekst -->
-      <div class={position} id="text">
-        <h3>{place}</h3>
-        <h4>{location}</h4>
-        <p>{information}</p>
-
-        <!-- Knap, hvor prop buttonlink er sat ind, så man kan udfylde linket til knappen inde i former_exhibitions -->
-        <div class="button">
-          <a href={buttonlink} target="_blank">Read more</a>
-        </div>
-      </div>
-
-      <!-- Billede -->
-      <div class="img_container">
-        <img src={imgPath} alt="Viewing Room New York" />
-      </div>
+  <!-- Tekst -->
+  <div class={position} id="text">
+    <div class="place_location">
+      <h3>{place}</h3>
+      <h4>{location}</h4>
     </div>
-  </section>
+    <p>{information}</p>
+
+    <!-- Knap, hvor prop buttonlink er sat ind, så man kan udfylde linket til knappen inde i former_exhibitions -->
+    <div class="button">
+      <a href={buttonlink} target="_blank">Read more</a>
+    </div>
+  </div>
+
+  <!-- Billede -->
+  <div class="img_container">
+    <img src={imgPath} alt="Viewing Room New York" />
+  </div>
 </article>
 
 <style>
   /* Desktop */
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  hr {
+    margin: 60px -60px;
+  }
 
   /* Laver flex box til teksen og fortæller om teksen skal være til venstre eller højre  */
   .text_left {
@@ -47,14 +54,10 @@ const { place, location, information, imgPath, buttonlink, position } =
     gap: 10px;
     order: 2;
   }
-  /* laver flex row, laver rækken, som vores (tekst og  billede er på) */
-  .flex_row {
-    margin-top: 2%;
-    margin-bottom: 2%;
-    justify-content: space-between;
+  .place_location {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    gap: 0;
   }
 
   .button a {
@@ -71,21 +74,6 @@ const { place, location, information, imgPath, buttonlink, position } =
     margin-top: 30px;
   }
 
-  /* Giver billedet de rigtige dimensioner */
-  /* Laver container til billedet, så det kan få de rigtige mål. */
-  .img_container {
-    height: auto;
-    margin-left: 50px;
-    margin-right: 55px;
-    width: 600px;
-    overflow: hidden;
-    margin-bottom: 5%;
-    margin-top: 5%;
-  }
-  .img_container img {
-    width: 100%;
-  }
-
   /* Laver vores border */
   .border {
     border-top: solid 1px black;
@@ -96,36 +84,25 @@ const { place, location, information, imgPath, buttonlink, position } =
 
   /* Mobile */
   @media screen and (max-width: 700px) {
-    /* Flex row, men denne gang bruges det til at ændre række følgen  */
-    .flex_row {
-      display: grid;
+    .container {
+      display: block;
     }
-
+    hr {
+      margin: 30px -28px;
+    }
     /* Flex til teksen og der er også givet rækkefølge så teksten bliver vist først */
     /* Teksten har fået rækkeføgen 2 */
     #text {
       order: 2;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 10px;
       margin-bottom: 18%;
-      margin-right: 5%;
     }
 
     /* billedet har fået rækkerfølgen 1.  */
     .img_container img {
       order: 1;
-      margin-top: 10%;
-    }
-
-    /* Giver de rigtige dimensioner til vores billede, og fjerner det overskydene */
-    .img_container {
-      height: auto;
-      margin-left: -55px;
-      width: 400px;
-      overflow: hidden;
-      margin-bottom: 2%;
-      margin-top: 2%;
     }
   }
 </style>
