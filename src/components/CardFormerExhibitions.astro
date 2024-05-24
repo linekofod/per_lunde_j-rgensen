@@ -1,8 +1,8 @@
 ---
 import "../styles/style.css";
 import Button from "../components/Button.astro";
-const { place, location, information, imgPath, buttonlink, position } =
-  Astro.props;
+const { data, position } = Astro.props;
+console.log(data);
 ---
 
 <hr />
@@ -10,20 +10,20 @@ const { place, location, information, imgPath, buttonlink, position } =
   <!-- Tekst -->
   <div class={position} id="text">
     <div class="place_location">
-      <h3>{place}</h3>
-      <h4>{location}</h4>
+      <h3>{data.title}</h3>
+      <h4>{data.location}</h4>
     </div>
-    <p>{information}</p>
+    <p>{data.description}</p>
 
     <!-- Knap, hvor prop buttonlink er sat ind, så man kan udfylde linket til knappen inde i former_exhibitions -->
     <div class="button">
-      <a href={buttonlink} target="_blank">Read more</a>
+      <a href={data.buttonLink} target="_blank">Read more</a>
     </div>
   </div>
 
   <!-- Billede -->
   <div class="img_container">
-    <img src={imgPath} alt="Viewing Room New York" />
+    <img src=`/imgs/formerexhibitions/${data.img}` alt="" />
   </div>
 </article>
 
@@ -36,23 +36,33 @@ const { place, location, information, imgPath, buttonlink, position } =
     align-items: center;
   }
 
+  .no_line {
+    display: none;
+  }
   hr {
-    margin: 60px -60px;
+    margin: 50px -60px;
+  }
+
+  h3 {
+    text-transform: uppercase;
   }
 
   /* Laver flex box til teksen og fortæller om teksen skal være til venstre eller højre  */
   .text_left {
     display: flex;
     flex-direction: column;
-    margin: 4%;
     gap: 10px;
   }
   .text_right {
     display: flex;
     flex-direction: column;
-    margin: 4%;
     gap: 10px;
     order: 2;
+  }
+  #text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   .place_location {
     display: flex;
@@ -88,7 +98,7 @@ const { place, location, information, imgPath, buttonlink, position } =
       display: block;
     }
     hr {
-      margin: 30px -28px;
+      margin: 20px -28px;
     }
     /* Flex til teksen og der er også givet rækkefølge så teksten bliver vist først */
     /* Teksten har fået rækkeføgen 2 */
@@ -107,5 +117,6 @@ const { place, location, information, imgPath, buttonlink, position } =
     .button a {
       padding: 15px 40px;
       font-size: 14px;
+    }
   }
 </style>
