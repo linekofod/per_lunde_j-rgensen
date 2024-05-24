@@ -1,10 +1,10 @@
 ---
 import "../styles/style.css";
+// Indsætter dataen, så vi kan bruge den nede i html'en ved at skrive data. efterfulgt af den data vi gerne vil bruge fra datasættet.
 const { data } = Astro.props;
 console.log(data);
 ---
 
-<!-- Indsætter data i de forskellige elementer på cardet -->
 <article>
   <!-- Henter dataen slug ind på cardsene, så når man klikker på et card, så går man til en ny side (singleview), hvor urlen slutter på slug navnet. -->
   <a class="card" href={`artworks/${data.slug}`}>
@@ -13,7 +13,7 @@ console.log(data);
     </figure>
     <p>{data.size}</p>
     <h4 class="h_bold">{data.title}</h4>
-    <h4 class="h_bold" id="title_2">{data.title2}</h4>
+    <h4 class="h_bold title_2">{data.title2}</h4>
     <h5>{data.location}</h5>
   </a>
 </article>
@@ -22,7 +22,7 @@ console.log(data);
   h4 {
     font-size: 23px;
   }
-  #title_2 {
+  .title_2 {
     font-size: 20px;
   }
   p {

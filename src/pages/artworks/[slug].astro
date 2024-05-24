@@ -16,14 +16,18 @@ export async function getStaticPaths() {
     }
   ).then((response) => response.json());
 
+  // Når dataene er hentet, bruger koden map-funktionen til at iterere over hvert kunstværk i dataene.
+  // For hvert kunstværk returneres et objekt med params og props:
   return data.map((artwork) => {
     return {
+      // params-objektet indeholder en slug, som bruges til at generere URL'er til de statiske sider. slug er en unik identifikator for hvert kunstværk.
       params: { slug: artwork.slug },
+      // props-objektet indeholder selve dataene for kunstværket, som kan bruges i komponenten til at vise detaljer om kunstværket.
       props: { data: artwork },
     };
   });
 }
-
+// Indsætter dataen, så vi kan bruge den nede i html'en ved at skrive data. efterfulgt af den data vi gerne vil bruge fra datasættet.
 const { data } = Astro.props;
 console.log(data);
 ---
@@ -42,7 +46,7 @@ console.log(data);
       <div class="title_location">
         <div class="titles">
           <h2>{data.title}</h2>
-          <h2 id="title_2">{data.title2}</h2>
+          <h2 class="title_2">{data.title2}</h2>
         </div>
         <h3>{data.location}</h3>
       </div>
@@ -66,11 +70,12 @@ console.log(data);
     display: grid;
     grid-template-columns: 42% 57%;
     gap: 40px;
+    margin-bottom: -56px;
   }
   h2 {
     line-height: 1.2;
   }
-  #title_2 {
+  .title_2 {
     font-size: 40px;
   }
   h3 {
@@ -89,7 +94,7 @@ console.log(data);
     gap: 5px;
   }
   .large_img {
-    height: 80vh;
+    height: 80vh; /* Angiver højden på det største billede for alle singleviews */
     object-fit: cover;
   }
   .zoom_imgs {
@@ -132,15 +137,28 @@ console.log(data);
   @media screen and (max-width: 900px) {
     .grid_1-1 {
       display: block;
+      margin-bottom: 0;
     }
     figure {
-      margin: -160px -28px 0 -30px;
+      margin: -30px 0 0 0;
+    }
+    .large_img {
+      height: auto;
+    }
+    .zoom_imgs img {
+      height: auto;
+    }
+    .artwork_info {
+      gap: 15px;
     }
     h2 {
       margin: 0 10px 7px 0;
     }
-    #title_2 {
+    .title_2 {
       font-size: 26px;
+    }
+    .title_location {
+      gap: 4px;
     }
     .artwork_info {
       margin-top: 30px;

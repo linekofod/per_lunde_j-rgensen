@@ -3,6 +3,7 @@ import "../styles/style.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ScrollUpBtn from "../components/ScrollUpBtn.astro";
+// Definerer props "title"
 const { title } = Astro.props;
 ---
 
@@ -25,6 +26,7 @@ const { title } = Astro.props;
     <footer>
       <Footer />
     </footer>
+    <!-- Siger, at man skal scrolle til headeren, når der bliver klikket på scroll up knappen -->
     <ScrollUpBtn destination="#header" />
   </body>
 </html>

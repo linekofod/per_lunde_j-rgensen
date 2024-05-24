@@ -3,11 +3,13 @@ import "../styles/style.css";
 ---
 
 <div class="header">
+  <!-- Logo -->
   <div class="logo">
     <a href="/">
       <img src="../logo/logo_header.svg" alt="Logo" />
     </a>
   </div>
+  <!-- Navigation -->
   <nav>
     <ul class="menu">
       <li><a href="/">Home</a></li>
@@ -16,6 +18,7 @@ import "../styles/style.css";
       <li><a href="/former_exhibitions">Former Exhibitions</a></li>
       <li><a href="/about">About</a></li>
     </ul>
+    <!-- Burger -->
     <div class="burger">
       <div class="bar"></div>
       <div class="bar"></div>
@@ -31,7 +34,6 @@ import "../styles/style.css";
     padding: 0 30px;
     position: relative;
     z-index: 999;
-    /* background-color: var(--hvidColor); */
   }
   nav {
     display: flex;
@@ -53,7 +55,7 @@ import "../styles/style.css";
     padding: 20px 20px;
   }
 
-  /* Klassen active og hover funktion på menu linksene der får den røde farve */
+  /* Den røde farve på klassen active, der indikerer hvilken side man er på, samt den røde farve på hover */
   .nav_active,
   .menu a:hover {
     padding: 20px 20px;
@@ -106,6 +108,7 @@ import "../styles/style.css";
       transform: rotate(-45deg) translate(6px, -6px);
       transition: 0.2s linear;
     }
+    /* Tilføjer klassen .active til navigationen, så vi kan lave en aktiv navigation i javascript */
     nav.active .menu {
       display: flex;
       gap: 30px;
@@ -118,9 +121,6 @@ import "../styles/style.css";
       height: 100vh;
       padding: 100px 0 0 20px;
     }
-    /* .red_color {
-      color: var(--sort100Color);
-    } */
   }
 </style>
 
@@ -145,7 +145,7 @@ import "../styles/style.css";
 
   // BURGERMENU
   // Kalder funtion på click af burgermenuen.
-  // Funktionen tilføjer klassen .active, når der klikkes på burgermenuen.
+  // Tilføjer og fjerner klassen .active (toggle), så burgermenuen og navigationen bliver vist og skjult på klik.
   burger.addEventListener("click", () => {
     burger.classList.toggle("active");
     nav.classList.toggle("active");

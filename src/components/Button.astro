@@ -7,8 +7,6 @@ const { destination } = Astro.props;
 <!-- Indsætter slot og props, så vi kan ændre i indholdet af knappen inde i html'en -->
 <a class="button" href={destination}><slot /></a>
 
-<!--Skriv knappen ind i html: <Button destination="skriv knappens destination">Skriv titlen på knappen</Button> -->
-
 <style>
   .button {
     padding: 18px 50px;

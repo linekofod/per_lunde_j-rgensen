@@ -1,73 +1,76 @@
 ---
 import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
-import Button from "../components/Button.astro";
+import FormAbout from "../components/FormAbout.astro";
 ---
 
 <MainLayout title="About">
-  <!-- overskrift -->
+  <!-- Overskrift -->
   <div class="grid_contact">
     <div class="vl"></div>
     <!-- Venstre grid -->
     <div>
       <h1>About</h1>
-      
-    <section class="left_info">
-      <!-- adresse -->
-      <div class="adresse">
-      <h3>Address</h3>
-      <h5 class="h_bold">Bonamatic</h5>
-      <p>Degnestavnen 17, st.tv.</p>
-      <p>2400 København NV</p>
-    </div>
 
-    <!-- åbningstider -->
-    <div class="opening_hours">
-      <h3>Opening hours</h3>
-      <div class="grid_1-1">
-        <div class="fælles_åbningstider">
-          <div class="åbningstider"><h5 class="h_bold">Monday:</h5><p>Closed</p></div>
-          <div class="åbningstider"><h5 class="h_bold">Tuesday:</h5><p>Closed</p></div>
-          <div class="åbningstider"><h5 class="h_bold">Wednesday:</h5><p>Closed</p></div>
-          <div class="åbningstider"><h5 class="h_bold">Thursday:</h5><p>15:30-17:00</p></div>
-          <div class="åbningstider"><h5 class="h_bold">Friday:</h5><p>15:30-17:00</p></div>
-          <div class="åbningstider"><h5 class="h_bold">Saturday:</h5><p>12:00-15:00</p></div>
-          <div class="åbningstider"><h5 class="h_bold">Sunday:</h5><p>Closed</p></div>
+      <section class="left_info">
+        <!-- Adresse -->
+        <div class="adresse">
+          <h3>Address</h3>
+          <h5 class="h_bold">Bonamatic</h5>
+          <p>Degnestavnen 17, st.tv.</p>
+          <p>2400 København NV</p>
         </div>
-        <!-- illustration -->
-        <img src="/imgs/illustration1.svg" alt="" />
-      </div>
-    </div>
 
-      <!-- kontakt -->
-      <div class="kontakt">
-      <h3>Per Lunde Jørgensen</h3>
-      <div class="phone">
-      <h5 class="h_bold">Phone:</h5>
-      <p>+45 36 16 77 10</p></div>
-      <div class="email">
-      <h5 class="h_bold">Email:</h5>
-      <p>plj@nonsite.dk</p></div>
+        <!-- Åbningstider -->
+        <div class="opening_hours">
+          <h3>Opening hours</h3>
+          <div class="grid_1-1">
+            <div class="fælles_åbningstider">
+              <div class="åbningstider">
+                <h5 class="h_bold">Monday:</h5><p>Closed</p>
+              </div>
+              <div class="åbningstider">
+                <h5 class="h_bold">Tuesday:</h5><p>Closed</p>
+              </div>
+              <div class="åbningstider">
+                <h5 class="h_bold">Wednesday:</h5><p>Closed</p>
+              </div>
+              <div class="åbningstider">
+                <h5 class="h_bold">Thursday:</h5><p>15:30-17:00</p>
+              </div>
+              <div class="åbningstider">
+                <h5 class="h_bold">Friday:</h5><p>15:30-17:00</p>
+              </div>
+              <div class="åbningstider">
+                <h5 class="h_bold">Saturday:</h5><p>12:00-15:00</p>
+              </div>
+              <div class="åbningstider">
+                <h5 class="h_bold">Sunday:</h5><p>Closed</p>
+              </div>
+            </div>
+            <!-- Illustration -->
+            <img src="/imgs/illustration1.svg" alt="" />
+          </div>
+        </div>
+
+        <!-- Kontakt -->
+        <div class="kontakt">
+          <h3>Per Lunde Jørgensen</h3>
+          <div class="phone">
+            <h5 class="h_bold">Phone:</h5>
+            <p>+45 36 16 77 10</p>
+          </div>
+          <div class="email">
+            <h5 class="h_bold">Email:</h5>
+            <p>plj@nonsite.dk</p>
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
-  </section>
 
     <!-- Højre grid (form-container) -->
-
     <div class="form-container">
-      <h3>Get in touch</h3>
-      <form action="/about" method="post" >
-        <label for="name">Name</label><br />
-        <input type="text" id="name" name="name" required/><br />
-
-        <label for="info">Email</label><br />
-        <input type="text" id="info" name="info" required/><br />
-
-        <label for="enquiry">Inquiry</label><br />
-
-        <textarea name="enquiry" id="enquiry" cols="30" rows="5" placeholder="Enter your message"></textarea>
-        <input class="button" type="submit" value="SEND">
-      </form>
+      <FormAbout />
     </div>
   </div>
 </MainLayout>
@@ -89,74 +92,7 @@ import Button from "../components/Button.astro";
     gap: 20px;
   }
 
-  /* form */
-
-  .form-container {
-    grid-column: 2;
-    margin-top: 20px;
-  }
-
-  input {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 28px;
-    margin-top: 8px;
-    border: 1px solid var(--sort100Color);
-    font-family: Helvetica;
-    font-size: 14px;
-  }
-
-  /* Inner shadow når man klikker, i stedet for blå outline */
-  input[type=text]:focus {
-  box-shadow: 1px 1px 4px var(--sort60Color) inset;
-  outline: none;
-  }
-
-  /* Styling af placeholder i Inquiry input felt */
-  input::placeholder {
-  font-family: Helvetica;
-  color: var(--sort60Color);
-  }
-
-  form label {
-    font-family: 'Inter-Regular';
-    font-size: 20px;
-    color: var(--sort100Color);
-  }
-
-  .button {
-    padding: 18px 50px;
-    border: 1px solid var(--sort100Color);
-    background-color: var(--hvidColor);
-    cursor: pointer;
-    width: fit-content;
-    margin-top: 20px;
-  }
-  .button:hover {
-    box-shadow: 5px 5px 4px #ac2a224d;
-    color: var(--rød100Color);
-  }
-  input[type=submit] {
-    font-size: 18px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--sort100Color);
-  }
-  textarea {
-    width: 80%;
-    border-style: solid;
-    resize: none;
-    padding: 10px 10px;
-    font-family: Helvetica;
-    font-size: 14px;
-  }
-  textarea:focus {
-  box-shadow: 1px 1px 4px var(--sort60Color) inset;
-  outline: none;
-  }
-
-  /* åbningstider */
-
+  /* Åbningstider */
   .åbningstider {
     display: flex;
     flex-direction: row;
@@ -172,19 +108,24 @@ import Button from "../components/Button.astro";
 
   h3 {
     margin-bottom: 10px;
-  } 
+  }
 
   /* Pers oplysninger */
-
-  .phone, .email {
+  .phone,
+  .email {
     display: flex;
     flex-direction: row;
     align-items: baseline;
     gap: 8px;
   }
 
-  /* linje */
+  /* Form */
+  .form-container {
+    grid-column: 2;
+    margin-top: 20px;
+  }
 
+  /* Linje */
   .vl {
     border-left: 1px solid var(--sort100Color);
     height: 160vh;
@@ -195,19 +136,18 @@ import Button from "../components/Button.astro";
   }
 
   img {
-      margin-top: 10%;
-      width: 75%;
-    }
+    margin-top: 10%;
+    width: 75%;
+  }
 
   /* Mobil version */
   @media screen and (max-width: 800px) {
-    /* linje forsvinder, mobilversion */
+    /* Linje forsvinder, mobilversion */
     .vl {
       display: none;
     }
 
-    /* grid */
-
+    /* Grid */
     .grid_1-1 {
       grid-template-columns: 200px 1fr;
       align-items: center;
@@ -221,30 +161,9 @@ import Button from "../components/Button.astro";
       margin-top: 0;
     }
 
-    /* Form mobilversion */
-    .left_info {
-      margin-bottom: 40px;
-    }
-
+    /* Form */
     .form-container {
-      margin-top: 10px;
-      grid-column: 2;
+      margin-top: 40px;
     }
-
-    input {
-      width: 80%;
-      padding: 5px;
-      margin-bottom: 15px;
-      margin-top:30px
-      border: 1px solid #000000;
-    }
-
-    .button {
-    padding: 15px 40px;
-    font-size: 14px;
-  }
-  a {
-      font-size: 22px;
-  }
   }
 </style>

@@ -1,13 +1,14 @@
 ---
 import "../styles/style.css";
-import Button from "../components/Button.astro";
+// Indsætter data, og definerer props "position", som afgør om teksten skal stå til venstre eller højre i komponentet.
 const { data, position } = Astro.props;
 console.log(data);
 ---
 
+<!-- hr = linje i toppen af hver sektion -->
 <hr />
-<article class="container">
-  <!-- Tekst -->
+<section class="container">
+  <!-- Tekst, hvor der bliver sat data ind med data. efterfulgt af den data vi gerne vil bruge fra datasættet. -->
   <div class={position} id="text">
     <div class="place_location">
       <h3>{data.title}</h3>
@@ -15,7 +16,8 @@ console.log(data);
     </div>
     <p>{data.description}</p>
 
-    <!-- Knap, hvor prop buttonlink er sat ind, så man kan udfylde linket til knappen inde i former_exhibitions -->
+    <!-- Knap, hvor button linksene fra datasættet er sat ind (buttonLink) -->
+    <!-- Knappen bliver stylet herinde, i stedet for at bruge Button komponentet, da vi skal have linket på knappen til at åbne på en ny fane med target="_blank" -->
     <div class="button">
       <a href={data.buttonLink} target="_blank">Read more</a>
     </div>
@@ -25,10 +27,9 @@ console.log(data);
   <div class="img_container">
     <img src=`/imgs/formerexhibitions/${data.img}` alt="" />
   </div>
-</article>
+</section>
 
 <style>
-  /* Desktop */
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -36,18 +37,19 @@ console.log(data);
     align-items: center;
   }
 
-  .no_line {
-    display: none;
-  }
+  /* Linjen i toppen af hver sektion */
   hr {
     margin: 50px -60px;
   }
 
+  /* Gør alle overskrifter med store bogstaver */
   h3 {
     text-transform: uppercase;
   }
 
-  /* Laver flex box til teksen og fortæller om teksen skal være til venstre eller højre  */
+  /* Laver flex box til teksen */
+  /* Klasserne "text_left" og "text_right" fortæller om teksen skal være til venstre eller højre */
+  /* Klasserne bliver så defineret med props position inde på former exhibitions siden */
   .text_left {
     display: flex;
     flex-direction: column;
@@ -63,13 +65,13 @@ console.log(data);
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin: auto;
   }
   .place_location {
     display: flex;
     flex-direction: column;
     gap: 0;
   }
-
   .button a {
     padding: 18px 50px;
     border: 1px solid var(--sort100Color);
@@ -84,35 +86,28 @@ console.log(data);
     margin-top: 30px;
   }
 
-  /* Laver vores border */
-  .border {
-    border-top: solid 1px black;
-    margin-left: -55px;
-    margin-right: -55px;
-    margin-top: 2%;
+  /* Alle billederne får samme størrelse */
+  .img_container img {
+    object-fit: cover;
+    height: 50vh;
+    width: 70vw;
   }
 
-  /* Mobile */
-  @media screen and (max-width: 700px) {
+  /* Mobil */
+  @media screen and (max-width: 800px) {
+    /* Ændrer al indhold til block i stedet for grid */
     .container {
       display: block;
     }
     hr {
       margin: 20px -28px;
     }
-    /* Flex til teksen og der er også givet rækkefølge så teksten bliver vist først */
-    /* Teksten har fået rækkeføgen 2 */
     #text {
-      order: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
       margin-bottom: 40px;
     }
-
-    /* billedet har fået rækkerfølgen 1.  */
     .img_container img {
-      order: 1;
+      height: 30vh;
+      width: 90vw;
     }
     .button a {
       padding: 15px 40px;

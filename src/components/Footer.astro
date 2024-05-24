@@ -3,10 +3,12 @@ import "../styles/style.css";
 import Button from "./Button.astro";
 ---
 
-<div class="footer">
+<section class="footer">
+  <!-- Logo -->
   <div class="logo">
     <a href="/"> <img src="/logo/logo_footer.svg" alt="Logo" /></a>
   </div>
+  <!-- Navigation links -->
   <nav>
     <h5 class="h_bold">Overview</h5>
     <ul>
@@ -17,6 +19,7 @@ import Button from "./Button.astro";
       <li><a href="/about">About</a></li>
     </ul>
   </nav>
+  <!-- Adresse -->
   <div class="adresse_section">
     <h5 class="h_bold">Address</h5>
     <div class="adresse">
@@ -24,8 +27,10 @@ import Button from "./Button.astro";
       <p>Degnestavnen 17, st.tv.</p>
       <p>2400 København NV</p>
     </div>
+    <!-- Åbningstider knap -->
     <a class="button" href="/about">See opening hours</a>
   </div>
+  <!-- SoMe ikoner -->
   <div class="some">
     <h5 class="h_bold">Social Media</h5>
     <div class="some_icons">
@@ -37,7 +42,7 @@ import Button from "./Button.astro";
       >
     </div>
   </div>
-</div>
+</section>
 
 <style>
   .footer {
@@ -105,7 +110,7 @@ import Button from "./Button.astro";
     color: var(--rød100Color);
   }
 
-  /* SoMe icons */
+  /* SoMe ikoner */
   .some {
     display: flex;
     flex-direction: column;
