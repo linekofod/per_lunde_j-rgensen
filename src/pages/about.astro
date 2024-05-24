@@ -56,7 +56,7 @@ import Button from "../components/Button.astro";
 
     <div class="form-container">
       <h3>Get in touch</h3>
-      <form action="/about" method="post" netlify >
+      <form action="/about" method="post" >
         <label for="name">Name</label><br />
         <input type="text" id="name" name="name" required/><br />
 
@@ -64,14 +64,8 @@ import Button from "../components/Button.astro";
         <input type="text" id="info" name="info" required/><br />
 
         <label for="enquiry">Inquiry</label><br />
-        <!-- <input
-          type="text"
-          id="enquiry"
-          name="enquiry"
-          placeholder="Enter your message"
-          required
-        /><br /> -->
-        <textarea name="besked" id="besked" cols="30" rows="5"></textarea>
+
+        <textarea name="enquiry" id="enquiry" cols="30" rows="5"></textarea>
         <input class="button" type="submit" value="SEND">
       </form>
     </div>
@@ -128,12 +122,6 @@ import Button from "../components/Button.astro";
     font-family: 'Inter-Regular';
     font-size: 20px;
     color: var(--sort100Color);
-  }
-
-  #enquiry {
-    width: 80%;
-    padding-bottom: 100px;
-    margin-bottom: 20px;
   }
 
   .button {
