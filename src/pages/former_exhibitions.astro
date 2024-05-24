@@ -23,14 +23,52 @@ console.log(data);
   <div class="top">
     <h1>FORMER EXHIBITIONS</h1>
     <Filter />
+    <h3 class="h3_header">All Exhibitions</h3>
   </div>
-  <!-- Text left -->
   <section class="former_exhibitions">
+    <!-- Text left -->
     <!-- Mapper over dataen, og indsætter det i komponentet CardArtworks -->
     {
-      data.map((exhibition) => {
-        return <Card position="text_left" data={exhibition} />;
-      })
+      data
+        .filter((exhibition) => exhibition.id === 1)
+        .map((exhibition) => <Card position="text_left" data={exhibition} />)
+    }
+    <!-- Text right -->
+    {
+      data
+        .filter((exhibition) => exhibition.id === 2)
+        .map((exhibition) => <Card position="text_right" data={exhibition} />)
+    }
+    <!-- Text left -->
+    {
+      data
+        .filter((exhibition) => exhibition.id === 3)
+        .map((exhibition) => <Card position="text_left" data={exhibition} />)
+    }
+    <!-- Text right -->
+    {
+      data
+        .filter((exhibition) => exhibition.id === 4)
+        .map((exhibition) => <Card position="text_right" data={exhibition} />)
+    }
+    <!-- Text left -->
+    {
+      data
+        .filter((exhibition) => exhibition.id === 5)
+        .map((exhibition) => <Card position="text_left" data={exhibition} />)
     }
   </section>
 </MainLayout>
+
+<style>
+  .h3_header {
+    margin: 54px 0 -30px 0;
+  }
+
+  /* Mobil version */
+  @media screen and (max-width: 800px) {
+    .h3_header {
+      margin: 0px 0 10px 0;
+    }
+  }
+</style>
