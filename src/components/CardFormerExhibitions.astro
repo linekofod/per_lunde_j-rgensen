@@ -1,29 +1,29 @@
 ---
 import "../styles/style.css";
 import Button from "../components/Button.astro";
-const { place, location, information, imgPath, buttonlink, position } =
-  Astro.props;
+const { data } = Astro.props;
+console.log(data);
 ---
 
 <hr />
 <article class="container">
   <!-- Tekst -->
-  <div class={position} id="text">
+  <div class="text_left" id="text">
     <div class="place_location">
-      <h3>{place}</h3>
-      <h4>{location}</h4>
+      <h3>{data.title}</h3>
+      <h4>{data.location}</h4>
     </div>
-    <p>{information}</p>
+    <p>{data.description}</p>
 
     <!-- Knap, hvor prop buttonlink er sat ind, så man kan udfylde linket til knappen inde i former_exhibitions -->
     <div class="button">
-      <a href={buttonlink} target="_blank">Read more</a>
+      <a href={data.buttonlink} target="_blank">Read more</a>
     </div>
   </div>
 
   <!-- Billede -->
   <div class="img_container">
-    <img src={imgPath} alt="Viewing Room New York" />
+    <img src=`/imgs/formerexhibitions/${data.img}` alt="" />
   </div>
 </article>
 
