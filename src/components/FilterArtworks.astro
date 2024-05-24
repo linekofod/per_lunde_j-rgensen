@@ -49,6 +49,7 @@ console.log(data);
 <section class="data all">
   <h3>All Artworks</h3>
   <div class="data_grid">
+    <!-- Mapper over dataen, og indsætter det i komponentet CardArtworks -->
     {data.map((artwork) => <CardArtworks data={artwork} />)}
   </div>
 </section>
