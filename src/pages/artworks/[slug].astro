@@ -36,10 +36,23 @@ console.log(data);
 <MainLayout title="Singleview">
   <section class="grid_1-1">
     <figure>
-      <img class="large_img" src=`/imgs/artworks/${data.img}` alt="" />
+      <img
+        class="large_img"
+        src=`/imgs/artworks/${data.img}`
+        loading="lazy"
+        alt="Artwork"
+      />
       <div class="zoom_imgs">
-        <img src=`/imgs/artworks/zoom_artworks/${data.zoom_img1}` alt="" />
-        <img src=`/imgs/artworks/zoom_artworks/${data.zoom_img2}` alt="" />
+        <img
+          src=`/imgs/artworks/zoom_artworks/${data.zoom_img1}`
+          loading="lazy"
+          alt="Zoomed in on artwork"
+        />
+        <img
+          src=`/imgs/artworks/zoom_artworks/${data.zoom_img2}`
+          loading="lazy"
+          alt="Zoomed in on artwork"
+        />
       </div>
     </figure>
     <div class="artwork_info">
