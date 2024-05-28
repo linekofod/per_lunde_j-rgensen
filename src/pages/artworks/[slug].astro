@@ -39,12 +39,16 @@ console.log(data);
       <img
         class="large_img"
         src=`/imgs/artworks/${data.img}`
+        width="720px"
+        height="620px"
         loading="lazy"
         alt="Artwork"
       />
       <div class="zoom_imgs">
         <img
           src=`/imgs/artworks/zoom_artworks/${data.zoom_img1}`
+          width="300px"
+          height="200px"
           loading="lazy"
           alt="Zoomed in on artwork"
         />
@@ -117,7 +121,7 @@ console.log(data);
     gap: 5px;
   }
   .zoom_imgs img {
-    width: 50%;
+    width: 49.3%;
     height: 200px;
     object-fit: cover;
   }
