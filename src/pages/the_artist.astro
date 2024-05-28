@@ -33,13 +33,13 @@ import MainLayout from "../layouts/MainLayout.astro";
       </div>
     </div>
     <figure id="artist_1">
-      <img src="/imgs/artist_1.webp" alt="" />
+      <img src="/imgs/artist_1.webp" alt="Artwork by Per" />
     </figure>
   </div>
   <!-- Container med informationer om Ebay Chairs -->
   <div class="artist_ebaychair">
     <figure id="artist_2">
-      <img src="/imgs/artist_2.webp" alt="" />
+      <img src="/imgs/artist_2.webp" alt="Artwork by Per" />
     </figure>
     <div class="textbox_artist">
       <h2>Ebay Office Chairs Within 20 km Of Copenhagen</h2>
@@ -73,17 +73,23 @@ import MainLayout from "../layouts/MainLayout.astro";
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 20px;
+    align-items: center;
   }
 
   /* Container med informationer om Ebay Chairs */
   .artist_ebaychair {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
 
   h2 {
     margin-bottom: 8px;
     line-height: 1.2;
+  }
+
+  figure img {
+    width: 80%;
   }
 
   /* Styling af tekst-sektioner */
