@@ -4,12 +4,16 @@ import "../styles/style.css";
 const { destination } = Astro.props;
 ---
 
-<a class="button" href={destination}>
+<a
+  class="scrollUp_button"
+  aria-label="Scroll up to top of the page"
+  href={destination}
+>
   <div class="arrow up"></div>
 </a>
 
 <style>
-  .button {
+  .scrollUp_button {
     position: fixed;
     bottom: 0;
     right: 0;
