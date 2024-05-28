@@ -74,6 +74,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     grid-template-columns: 1fr 1fr;
     margin-bottom: 20px;
     align-items: center;
+    gap: 50px;
   }
 
   /* Container med informationer om Ebay Chairs */
@@ -81,6 +82,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    gap: 50px;
   }
 
   h2 {
@@ -89,7 +91,9 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   figure img {
-    width: 80%;
+    height: 80vh; /* Angiver højden på det største billede for alle singleviews */
+    width: 70vh;
+    object-fit: cover;
   }
 
   /* Styling af tekst-sektioner */
@@ -110,12 +114,18 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   /* Mobil version */
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1000px) {
     .artist_Per {
       grid-template-columns: 1fr;
+      gap: 0;
     }
     .artist_ebaychair {
       grid-template-columns: 1fr;
+      gap: 0;
+    }
+    figure img {
+      width: auto;
+      height: auto;
     }
     h1 {
       margin-bottom: 30px;
