@@ -125,44 +125,38 @@ import "../styles/style.css";
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Definerer variabler for navigation og burgermenu
-    const burger = document.querySelector(".burger");
-    const nav = document.querySelector("nav");
-    const menu = document.querySelector(".menu");
-    // Definerer alle links i menuen
-    const links = document.querySelectorAll(".menu li a");
+  // Definerer variabler for navigation og burgermenu
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector("nav");
+  const menu = document.querySelector(".menu");
+  // Definerer alle links i menuen
+  const links = document.querySelectorAll(".menu li a");
 
-    // RØD FARVE PÅ AKTIVE NAVIGATIONSLINKS
-    links.forEach((link) => {
-      link.classList.remove("nav_active");
+  // RØD FARVE PÅ AKTIVE NAVIGATIONSLINKS
+  links.forEach((link) => {
+    link.classList.remove("nav_active");
 
-      // Log værdierne for debugging
-      console.log("Link href:", link.getAttribute("href"));
-      console.log("Current pathname:", window.location.pathname);
+    // Sammenligner linkets href attribut med den aktuelle sidestig (pathname) - (f.eks. pathname på artworks siden er /artworks)
+    // Hvis de matcher, tilføjes klassen "nav_active" til linket, som har den røde farve.
+    if (link.getAttribute("href") === window.location.pathname) {
+      link.classList.add("nav_active");
+      console.log("Active link found:", link);
+    }
+  });
 
-      // Sammenligner linkets href attribut med den aktuelle sidestig (pathname) - (f.eks. pathname på artworks siden er /artworks)
-      // Hvis de matcher, tilføjes klassen "nav_active" til linket, som har den røde farve.
-      if (link.getAttribute("href") === window.location.pathname) {
-        link.classList.add("nav_active");
-        console.log("Active link found:", link);
-      }
-    });
+  // BURGERMENU
+  // Kalder funtion på click af burgermenuen.
+  // Tilføjer og fjerner klassen .active (toggle), så burgermenuen og navigationen bliver vist og skjult på klik.
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+    nav.classList.toggle("active");
+  });
 
-    // BURGERMENU
-    // Kalder funtion på click af burgermenuen.
-    // Tilføjer og fjerner klassen .active (toggle), så burgermenuen og navigationen bliver vist og skjult på klik.
-    burger.addEventListener("click", () => {
-      burger.classList.toggle("active");
-      nav.classList.toggle("active");
-    });
-
-    // Når der klikkes på linksene inde i burgermenuen, lukker burgermenuen igen.
-    links.forEach((link) => {
-      link.addEventListener("click", () => {
-        burger.classList.remove("active");
-        nav.classList.remove("active");
-      });
+  // Når der klikkes på linksene inde i burgermenuen, lukker burgermenuen igen.
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      burger.classList.remove("active");
+      nav.classList.remove("active");
     });
   });
 </script>
