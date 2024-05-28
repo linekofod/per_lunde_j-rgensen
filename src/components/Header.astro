@@ -137,11 +137,11 @@ import "../styles/style.css";
     links.forEach((link) => {
       link.classList.remove("nav_active");
 
-      // Sammenligner linkets href attribut med den aktuelle sidestig (pathname) - (f.eks. pathname på artworks siden er /artworks)
+      // Tjekker om linkets pathname matcher det aktuelle vindues window.location.pathname - (f.eks. pathname på artworks siden er /artworks).
       // Hvis de matcher, tilføjes klassen "nav_active" til linket, som har den røde farve.
-      if (link.getAttribute("href") === window.location.pathname) {
+      if (link.pathname === window.location.pathname) {
         link.classList.add("nav_active");
-        console.log("Active link found:", link);
+        console.log(link);
       }
     });
 
