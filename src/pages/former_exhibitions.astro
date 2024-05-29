@@ -15,7 +15,8 @@ const data = await fetch(
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwb3NiZWxidWVlbXV6b25xaXV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ3MzY2NzEsImV4cCI6MjAzMDMxMjY3MX0.7RC3yfMry34vETtGOmQWAujgxwf9O7ONYsWoLMtoagM",
     },
   }
-).then((res) => res.json());
+  // Resultatet konverteres til JSON-format med response.json().
+).then((response) => response.json());
 console.log(data);
 ---
 

@@ -14,6 +14,7 @@ export async function getStaticPaths() {
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwb3NiZWxidWVlbXV6b25xaXV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ3MzY2NzEsImV4cCI6MjAzMDMxMjY3MX0.7RC3yfMry34vETtGOmQWAujgxwf9O7ONYsWoLMtoagM",
       },
     }
+    // Resultatet konverteres til JSON-format med response.json().
   ).then((response) => response.json());
 
   // Når dataene er hentet, bruger koden map-funktionen til at iterere over hvert kunstværk i dataene.
